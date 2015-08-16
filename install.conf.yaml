@@ -22,8 +22,8 @@
         path: go/
         create: true
     ~/.vim:
-        path: go/
+        path: vim/
         create: true
     ~/.zsh:
-        path: .zsh/
+        path: zsh/
         create: true
