@@ -5,6 +5,7 @@
     ~/.curlrc: curlrc
     ~/.editorconfig: editorconfig
     ~/.gdbinit: gdbinit
+    ~/.ghci: ghci
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
     ~/.gvimrc: gvimrc
