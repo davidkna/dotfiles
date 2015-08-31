@@ -7,7 +7,7 @@ import Antigen (-- Rudimentary imports
                 AntigenConfig (..)
               , defaultConfig
               , bundle
-              , antigenn)
+              , antigen)
 
 bundles =
   [ bundle "Tarrasch/zsh-command-not-found"
