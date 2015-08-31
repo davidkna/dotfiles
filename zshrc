@@ -9,7 +9,7 @@ source ~/.zsh/antigen-hs/init.zsh
 
 fortune -s | cowsay
 
-eval "$(thefuck-alias)"
+eval "$(thefuck --alias)"
 
 source "$HOME/.nvm/nvm.sh"
 nvm use default > /dev/null
