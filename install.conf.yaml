@@ -14,7 +14,7 @@
     ~/.screenrc: screenrc
     ~/.vimrc: vimrc
     ~/.wgetrc: wgetrc
-    ~/.zshrc: zshrc
+    ~/.zshrc: zshrc.zsh
     ~/bin:
         path: bin/
         create: true

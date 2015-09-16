@@ -1,0 +1,9 @@
+Tarrasch/zsh-command-not-found
+Tarrasch/zsh-colors
+Tarrasch/zsh-autoenv
+Tarrasch/zsh-mcd
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-completions
+mafredri/zsh-async
+sindresorhus/pure
