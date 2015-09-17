@@ -11,7 +11,7 @@ export EDITOR=nano
 export VISUAL=subl
 
 
-alias update='yaourt -Syua; brew cleanup; sudo npm update -g; sudo gem update --system; sudo gem update'
+alias update='yaourt -Syua; sudo npm update -g; sudo gem update --system; sudo gem update'
 
 alias 1pw=" passcards -v ~/Dropbox/1Password/1Password.agilekeychain"
 alias subl=subl3
