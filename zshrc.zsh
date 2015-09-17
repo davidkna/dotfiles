@@ -15,6 +15,13 @@ cowsay "$(fortune)" | lolcat
 
 eval "$(thefuck --alias)"
 
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+else # OS X `ls`
+	colorflag="-G"
+fi
+alias ls="command ls ${colorflag}"
+
 if [ -f "$HOME/.nvm/nvm.sh" ];
 then
    source "$HOME/.nvm/nvm.sh"
