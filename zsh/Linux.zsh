@@ -7,6 +7,9 @@ then
 	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
+export EDITOR=nano
+export VISUAL=subl
+
 alias update-system=" yaourt -Syua"
 alias 1pw=" passcards -v ~/Dropbox/1Password/1Password.agilekeychain"
 alias subl=subl3

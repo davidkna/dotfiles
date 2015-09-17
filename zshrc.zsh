@@ -11,7 +11,7 @@ source "$HOME/.zsh/antibody/antibody.zsh"
 
 antibody bundle < "$HOME/.zsh/plugins.txt"
 
-cowsay $(fortune) | lolcat
+cowsay "$(fortune)" | lolcat
 
 eval "$(thefuck --alias)"
 
@@ -20,6 +20,3 @@ then
    source "$HOME/.nvm/nvm.sh"
 	nvm use default > /dev/null
 fi
-
-export EDITOR=nano
-export VISUAL=subl
