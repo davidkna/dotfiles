@@ -1,2 +1,2 @@
-zsh/antibody
+zsh/antibody/*
 !zsh/antibody/.gitkeep
