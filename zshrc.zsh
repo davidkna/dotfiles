@@ -11,7 +11,7 @@ source "$HOME/.zsh/antibody/antibody.zsh"
 
 antibody bundle < "$HOME/.zsh/plugins.txt"
 
-cowsay "$(fortune)" | lolcat
+cowsay -f moose "$(fortune)" | lolcat
 
 eval "$(thefuck --alias)"
 
