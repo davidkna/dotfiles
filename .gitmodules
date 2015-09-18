@@ -1,6 +1,3 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "nanorc"]
-	path = nanorc
-	url = https://github.com/nanorc/nanorc.git
