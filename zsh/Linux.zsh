@@ -7,8 +7,8 @@ then
 	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-export EDITOR=nano
-export VISUAL=subl
+export EDITOR="vim -e"
+export VISUAL=vim
 
 
 alias update='yaourt -Syua; sudo npm update -g; sudo gem update --system; sudo gem update'
