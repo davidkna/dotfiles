@@ -27,3 +27,5 @@ then
    source "$HOME/.nvm/nvm.sh"
 	nvm use default > /dev/null
 fi
+
+export CC="clang"
