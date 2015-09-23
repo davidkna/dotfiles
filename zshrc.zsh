@@ -29,3 +29,4 @@ then
 fi
 
 export CC="clang"
+export CXX="clang++"
