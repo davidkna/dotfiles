@@ -29,4 +29,8 @@ then
 fi
 
 export CC="clang"
+export CFLAGS="-march native -02 -pipe"
 export CXX="clang++"
+export CXXFLAGS="${CFLAGS}"
+export MAKEOPTS="-j5"
+export ANDROID_HOME=/usr/local/opt/android-sdk
