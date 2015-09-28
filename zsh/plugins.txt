@@ -1,4 +1,3 @@
-Tarrasch/zsh-command-not-found
 Tarrasch/zsh-colors
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
