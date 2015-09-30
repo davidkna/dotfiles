@@ -29,7 +29,7 @@ then
 fi
 
 export CC="clang"
-export CFLAGS="-march native -02 -pipe"
+export CFLAGS="-march=native -O2 -pipe"
 export CXX="clang++"
 export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j5"
