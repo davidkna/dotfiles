@@ -25,7 +25,7 @@ alias ls="command ls ${colorflag}"
 if [ -f "$HOME/.nvm/nvm.sh" ];
 then
    source "$HOME/.nvm/nvm.sh"
-	nvm use default > /dev/null
+   nvm use default > /dev/null
 fi
 
 export CFLAGS="-march=native -O2 -pipe"
