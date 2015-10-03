@@ -28,9 +28,7 @@ then
 	nvm use default > /dev/null
 fi
 
-export CC="clang"
 export CFLAGS="-march=native -O2 -pipe"
-export CXX="clang++"
 export CXXFLAGS="${CFLAGS}"
-export MAKEOPTS="-j5"
+export MAKEOPTS="-j4"
 export ANDROID_HOME=/usr/local/opt/android-sdk
