@@ -4,6 +4,7 @@
     ~/.bash_logout: bash_logout
     ~/.curlrc: curlrc
     ~/.editorconfig: editorconfig
+    ~/.eslintrc: eslintrc
     ~/.gdbinit: gdbinit
     ~/.ghci: ghci
     ~/.gitconfig: gitconfig
@@ -11,11 +12,11 @@
     ~/.gvimrc: gvimrc
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
+    ~/.nanorc: nanorc
     ~/.screenrc: screenrc
     ~/.vimrc: vimrc
     ~/.wgetrc: wgetrc
     ~/.zshrc: zshrc.zsh
-    ~/.nanorc: nanorc
     ~/bin:
         path: bin/
         create: true

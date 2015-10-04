@@ -1,0 +1,9 @@
+{
+		"parser": "babel-eslint",
+		"extends": "airbnb",
+		"rules": {
+				"indent": [2, "tab"],
+				"semi": [2, "never"]
+		}
+}
+
