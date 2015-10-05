@@ -1,15 +1,14 @@
+source "$HOME/.zsh/antibody/antibody.zsh"
+
+antibody bundle < "$HOME/.zsh/plugins.txt"
+
 envfile="$HOME/.zsh/$(uname).zsh"
 if [ -r $envfile ]; then
     source "$envfile"
 fi
 
 export PATH="$HOME/bin:$PATH"
-
 export GOPATH=$HOME/go
-
-source "$HOME/.zsh/antibody/antibody.zsh"
-
-antibody bundle < "$HOME/.zsh/plugins.txt"
 
 cowsay -f moose "$(fortune)" | lolcat
 
@@ -32,3 +31,7 @@ export CFLAGS="-march=native -O2 -pipe"
 export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j4"
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Command completion
+autoload -U compinit
+compinit
