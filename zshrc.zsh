@@ -7,8 +7,8 @@ if [ -r $envfile ]; then
     source "$envfile"
 fi
 
-export PATH="$HOME/bin:$PATH"
 export GOPATH=$HOME/go
+export PATH="$HOME/bin:$GOPATH/bin:$PATH"
 
 cowsay -f moose "$(fortune)" | lolcat
 
@@ -35,3 +35,6 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 # Command completion
 autoload -U compinit
 compinit
+
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
