@@ -176,7 +176,7 @@
 	helper = cache --timeout=3600
 [user]
 
-	email = david@knaack.me
+	email = davidkna@users.noreply.github.com
 	name = David Knaack
 [filter "lfs"]
 	clean = git-lfs clean %f
