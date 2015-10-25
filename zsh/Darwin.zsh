@@ -1,7 +1,7 @@
 export EDITOR=nano
 export VISUAL=subl
 
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/share/pypy"
+export PATH="/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/share/pypy"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
