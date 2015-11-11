@@ -11,6 +11,6 @@ export EDITOR="vim -e"
 export VISUAL=vim
 
 
-alias update='sudo dnf update; npm update -g; sudo gem update --system; sudo gem update'
+alias update='sudo dnf upgrade; npm update -g; sudo gem update --system; sudo gem update'
 
 alias 1pw=" passcards -v ~/Dropbox/1Password/1Password.agilekeychain"
