@@ -1,5 +1,1 @@
 bin/*
-go/*
-zsh/antibody/*
-
-!.gitkeep
