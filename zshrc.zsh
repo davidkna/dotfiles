@@ -1,4 +1,9 @@
-source "$HOME/.zsh/antibody/antibody.zsh"
+export CFLAGS="-march=native -O2 -pipe"
+export CXXFLAGS="${CFLAGS}"
+export MAKEOPTS="-j4"
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+source "$HOME/.zsh/antibody.zsh"
 
 antibody bundle < "$HOME/.zsh/plugins.txt"
 
@@ -26,11 +31,6 @@ then
    source "$HOME/.nvm/nvm.sh"
    nvm use default > /dev/null
 fi
-
-export CFLAGS="-march=native -O2 -pipe"
-export CXXFLAGS="${CFLAGS}"
-export MAKEOPTS="-j4"
-export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Command completion
 autoload -U compinit
