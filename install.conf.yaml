@@ -20,9 +20,6 @@
     ~/bin:
         path: bin/
         create: true
-    ~/go:
-        path: go/
-        create: true
     ~/.vim:
         path: vim/
         create: true
