@@ -1,34 +1,35 @@
+#!/usr/bin/env zsh
+
 export CFLAGS="-march=native -O2 -pipe"
 export CXXFLAGS="${CFLAGS}"
-export MAKEOPTS="-j4"
+export MAKEOPTS="-j5"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-source "$HOME/.zsh/antibody.zsh"
+if [ -f ~/go/bin/antibody ];
+then
+    source ~/.zsh/antibody.zsh
+fi
 
 antibody bundle < "$HOME/.zsh/plugins.txt"
 
-envfile="$HOME/.zsh/$(uname).zsh"
+local envfile=~/.zsh/$(uname).zsh
 if [ -r $envfile ]; then
     source "$envfile"
 fi
 
-export GOPATH=$HOME/go
-export PATH="$HOME/bin:$GOPATH/bin:$PATH"
+export GOPATH=~/go
+export PATH=~/bin:~/bin:$PATH
 
 cowsay -f moose "$(fortune)" | lolcat
 
 eval "$(thefuck --alias)"
 
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
-alias ls="command ls ${colorflag}"
 
-if [ -f "$HOME/.nvm/nvm.sh" ];
+alias ls="command ls --color"
+
+if [ -f ~/.nvm/nvm.sh ];
 then
-   source "$HOME/.nvm/nvm.sh"
+   source ~/.nvm/nvm.sh
    nvm use default > /dev/null
 fi
 

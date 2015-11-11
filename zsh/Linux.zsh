@@ -1,10 +1,12 @@
+#!/usr/bin/env zsh
+
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
-if [ -x "$HOME/.linuxbrew" ];
+if [ -x ~/.linuxbrew ];
 then
-	export PATH="$HOME/.linuxbrew/bin:$PATH"
-	export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+	export PATH=~/.linuxbrew/bin:$PATH
+	export MANPATH=~/.linuxbrew/share/man:$MANPATH
+	export INFOPATH=~/.linuxbrew/share/info:$INFOPATH
 fi
 
 export EDITOR="vim -e"

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export EDITOR=nano
 export VISUAL=subl
 
