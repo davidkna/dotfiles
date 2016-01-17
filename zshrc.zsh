@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
-export CFLAGS="-march=native -O2 -pipe"
-export CXXFLAGS="${CFLAGS}"
+export CC="clang"
+export CXX="clang++"
+export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
+export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
 export MAKEOPTS="-j5"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
@@ -39,3 +41,4 @@ compinit
 
 # Case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
