@@ -3,7 +3,7 @@
 export EDITOR=nano
 export VISUAL=subl
 
-export PATH="/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/share/pypy"
+export PATH="/usr/local/sbin:$PATH:/usr/local/share/pypy"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -15,3 +15,6 @@ if (( $+commands[grc] )) && (( $+commands[brew] ))
 then
   source "$(brew --prefix)/etc/grc.bashrc"
 fi
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
