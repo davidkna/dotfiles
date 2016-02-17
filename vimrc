@@ -1,10 +1,33 @@
+" Make Vim more useful
+ set nocompatible
+
+" Install vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute 'mkdir ~/.vim/plugged'
+    execute 'mkdir ~/.vim/autoload'
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'Raimondi/delimitMate'
+call plug#end()
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
-" Make Vim more useful
-set nocompatible
+" POWERLINE
+let g:airline_powerline_fonts = 1
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
