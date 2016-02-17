@@ -6,7 +6,7 @@ colorscheme solarized
 set macligatures
 
 " Use 14pt Monaco
-set guifont="Fira Code":h14
+set guifont=Fira\ Code:h14
 
 " Don’t blink cursor in normal mode
 set guicursor=n:blinkon0
