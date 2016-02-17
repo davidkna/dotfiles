@@ -1,1 +1,3 @@
 bin/*
+vim/plugged/*
+vim/autoload/*
