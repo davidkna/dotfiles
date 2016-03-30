@@ -2,13 +2,6 @@
 
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
-if [ -x ~/.linuxbrew ];
-then
-	export PATH=~/.linuxbrew/bin:$PATH
-	export MANPATH=~/.linuxbrew/share/man:$MANPATH
-	export INFOPATH=~/.linuxbrew/share/info:$INFOPATH
-fi
-
 export EDITOR="vim -e"
 export VISUAL=vim
 
