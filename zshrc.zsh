@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-export CC="clang"
-export CXX="clang++"
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
 export MAKEOPTS="-j5"
