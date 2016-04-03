@@ -1,7 +1,9 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_logout: bash_logout
+    ~/.bash_logout:
+        path: bash_logout
+        force: true
     ~/.curlrc: curlrc
     ~/.editorconfig: editorconfig
     ~/.eslintrc: eslintrc
