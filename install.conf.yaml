@@ -12,7 +12,6 @@
     ~/.curlrc: curlrc
     ~/.dotfiles: ''
     ~/.editorconfig: editorconfig
-    ~/.eslintrc: eslintrc
     ~/.gdbinit: gdbinit
     ~/.ghci: ghci
     ~/.gitconfig: gitconfig
