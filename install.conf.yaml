@@ -7,7 +7,9 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_logout: bash_logout
+    ~/.bash_login: zsh/common.zsh
+    ~/.bash_logout: bash_logout.sh
+    ~/.bashrc: zsh/common.zsh
     ~/.config/nvim/init.vim: nvimrc.vim
     ~/.curlrc: curlrc
     ~/.dotfiles: ''
@@ -16,7 +18,7 @@
     ~/.ghci: ghci
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
-    ~/.gvimrc: gvimrc
+    ~/.gvimrc: gvimrc.vim
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
     ~/.nano: nano/
