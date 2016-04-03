@@ -73,3 +73,7 @@ extract () {
         echo "'$1' is not a valid file"
     fi
 }
+
+antibody_bundle() {
+	~/go/bin/antibody bundle < ~/.zsh/plugins.txt | xargs -I {} echo "source {}" > ~/.zsh/plugins.zsh
+}

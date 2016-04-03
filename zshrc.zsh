@@ -5,11 +5,10 @@ export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
 export MAKEOPTS="-j5"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-if [ -f ~/go/bin/antibody ];
+if [ -f ~/.zsh/plugins.zsh ];
 then
-    source ~/.zsh/antibody.zsh
+    source ~/.zsh/plugins.zsh
 fi
-antibody bundle < "$HOME/.zsh/plugins.txt"
 
 source "${HOME}/.zsh/aliases.zsh"
 
