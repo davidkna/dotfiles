@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
