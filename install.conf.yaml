@@ -1,10 +1,17 @@
+- defaults:
+    link:
+      create: true
+      force: true
+      relink: true
+
 - clean: ['~']
 
 - link:
-    ~/.bash_logout:
-        path: bash_logout
-        force: true
+    ~/.bash_logout: bash_logout
+    ~/bin: bin/
+    ~/.config/nvim/init.vim: nvimrc.vim
     ~/.curlrc: curlrc
+    ~/.dotfiles: ''
     ~/.editorconfig: editorconfig
     ~/.eslintrc: eslintrc
     ~/.gdbinit: gdbinit
@@ -14,21 +21,16 @@
     ~/.gvimrc: gvimrc
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
+    ~/.nano: nano/
     ~/.nanorc: nanorc
     ~/.screenrc: screenrc
     ~/.ssh/config: ssh
-    ~/.vimrc: vimrc
+    ~/.vimrc: vimrc.vim
     ~/.wgetrc: wgetrc
+    ~/.zsh: zsh/
     ~/.zshrc: zshrc.zsh
-    ~/bin:
-        path: bin/
-        create: true
-    ~/.vim:
-        path: vim/
-        create: true
-    ~/.zsh:
-        path: zsh/
-        create: true
-    ~/.nano:
-        path: nano/
-        create: true
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - ["curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Installing vim-plug for vim]
+  - ["curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Install vim-plug for nvim]
