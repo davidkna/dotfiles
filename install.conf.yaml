@@ -34,4 +34,4 @@
   - [git submodule update --init --recursive, Installing submodules]
   - ["curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Installing vim-plug for vim]
   - ["curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Install vim-plug for nvim]
-  - [mkdir ~/bin, Creating bin]
+  - [test -d ~/bin || mkdir ~/bin, Creating bin]
