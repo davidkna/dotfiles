@@ -10,7 +10,4 @@ export PATH=~/bin:$PATH:$GOPATH/bin
 cowsay -f moose "$(fortune)" | lolcat
 source ~/.zsh/aliases.zsh
 
-envfile=$(uname).zsh
-if [ -r $envfile ]; then
-    source ~/.zsh/$envfile
-fi
+source ~/.zsh/$(uname).zsh
