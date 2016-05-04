@@ -11,6 +11,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Use the Solarized Dark theme
