@@ -2,9 +2,9 @@
 
 source ~/.zsh/common.zsh
 
-if [ -f ~/.zsh/plugins.zsh ];
+if [ -f ~/.local/share/zsh_plugins/plugins.zsh ];
 then
-    source ~/.zsh/plugins.zsh
+    source ~/.local/share/zsh_plugins/plugins.zsh
 fi
 
 # Command completion
