@@ -22,13 +22,13 @@
     ~/.gvimrc: gvimrc.vim
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
-    ~/.nano: nano/
+    ~/.nano: nano
     ~/.nanorc: nanorc
     ~/.screenrc: screenrc
     ~/.ssh/config: ssh
     ~/.vimrc: vimrc.vim
     ~/.wgetrc: wgetrc
-    ~/.zsh: zsh/
+    ~/.zsh: zsh
     ~/.zshrc: zshrc.zsh
 
 - shell:
