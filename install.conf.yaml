@@ -19,6 +19,7 @@
     ~/.ghci: ghci
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.gnupg/gpg.conf: gpg.conf
     ~/.gvimrc: gvimrc.vim
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
