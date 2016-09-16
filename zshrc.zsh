@@ -13,3 +13,5 @@ compinit
 
 # Case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
