@@ -14,5 +14,4 @@ then
   source "$(brew --prefix)/etc/grc.bashrc"
 fi
 
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
