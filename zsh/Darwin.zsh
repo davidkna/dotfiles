@@ -3,11 +3,11 @@
 export EDITOR=nano
 export VISUAL=subl
 
-export PATH="PATH=/opt/pkg/sbin:/opt/pkg/bin:$PATH:/usr/local/share/pypy"
+export PATH="PATH=$PATH:/usr/local/sbin:/usr/local/share/pypy:${HOME}/.cargo/bin"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; gem update'
 
 if (( $+commands[grc] )) && (( $+commands[brew] ))
 then

@@ -21,6 +21,7 @@
     ~/.gitignore: gitignore
     ~/.gnupg/gpg.conf: gpg.conf
     ~/.gvimrc: gvimrc.vim
+    ~/.hammerspoon/init.lua: hammerspoon.lua
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
     ~/.nano: nano
