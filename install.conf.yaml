@@ -24,6 +24,7 @@
     ~/.hammerspoon/init.lua: hammerspoon.lua
     ~/.hushlogin: hushlogin
     ~/.inputrc: inputrc
+    ~/.lldbinit: lldbinit.config
     ~/.nano: nano
     ~/.nanorc: nanorc
     ~/.screenrc: screenrc
