@@ -14,7 +14,7 @@
     ~/.config/zsh-plugin-manager/config.js: zsh-plugin-manager.config.js
     ~/.curlrc: curlrc
     ~/.dotfiles: ''
-    ~/.editorconfig: editorconfig
+    ~/.editorconfig: editorconfig.ini
     ~/.gdbinit: gdbinit.conf
     ~/.ghci: ghci.hs
     ~/.gitconfig: git.conf
