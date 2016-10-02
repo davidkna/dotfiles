@@ -39,4 +39,4 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/.vim/backups ~/.vim/swaps ~/.vim/undo, Creating directories for vim]
   - [test -d ~/bin || mkdir ~/bin, Creating bin]
-  - [touch .hushlogin, Creting hushlogin file]
+  - [touch ~/.hushlogin, Creting hushlogin file]
