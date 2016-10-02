@@ -15,9 +15,9 @@
     ~/.curlrc: curlrc
     ~/.dotfiles: ''
     ~/.editorconfig: editorconfig
-    ~/.gdbinit: gdbinit
-    ~/.ghci: ghci
-    ~/.gitconfig: gitconfig
+    ~/.gdbinit: gdbinit.conf
+    ~/.ghci: ghci.hs
+    ~/.gitconfig: git.conf
     ~/.gitignore: gitignore
     ~/.gnupg/gpg.conf: gpg.conf
     ~/.gvimrc: gvimrc.vim
