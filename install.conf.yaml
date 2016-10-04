@@ -11,7 +11,7 @@
     ~/.bash_logout: bash_logout.sh
     ~/.bashrc: zsh/common.zsh
     ~/.config/nvim/init.vim: nvimrc.vim
-    ~/.config/zsh-plugin-manager/config.js: zsh-plugin-manager.config.js
+    ~/.config/zsh-goggles/config.js: zsh-goggles.config.js
     ~/.curlrc: curlrc.conf
     ~/.dotfiles: ''
     ~/.editorconfig: editorconfig.ini
