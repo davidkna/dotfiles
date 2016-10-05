@@ -10,6 +10,7 @@
     ~/.bash_login: zsh/common.zsh
     ~/.bash_logout: bash_logout.sh
     ~/.bashrc: zsh/common.zsh
+    ~/.config/mpv: mpv
     ~/.config/nvim/init.vim: nvimrc.vim
     ~/.config/zsh-goggles/config.js: zsh-goggles.config.js
     ~/.curlrc: curlrc.conf
