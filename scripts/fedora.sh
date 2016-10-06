@@ -21,7 +21,8 @@ sudo systemctl enable fstrim.timer
 sudo systemctl start fstrim.timer
 
 # dnsmasq
-sudo ruby ~/.dotfiles/scripts/Fedora/dnsmasq.rb
+gem install inifile
+sudo -E ruby ~/.dotfiles/scripts/Fedora/dnsmasq.rb
 sudo cp ~/.dotfiles/scripts/Fedora/common/dnsmasq.conf /etc/NetworkManager/dnsmasq.d/unotelly.conf
 
 # lz4
