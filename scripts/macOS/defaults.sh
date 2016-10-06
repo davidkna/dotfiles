@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
+# Based on:
 # ~/.osx — https://mths.be/osx
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 sudo -v
@@ -83,9 +88,6 @@ sudo systemsetup -setrestartfreeze on
 # Never go into computer sleep mode
 sudo systemsetup -setcomputersleep Off > /dev/null
 
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
@@ -95,9 +97,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
-
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
 
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
@@ -147,7 +146,16 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Set language and text formats
+# Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
+# `Inches`, `en_GB` with `en_US`, and `true` with `false`.
+defaults write NSGlobalDomain AppleLanguages -array "en" "de"
+defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
@@ -203,7 +211,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -214,17 +222,14 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Finder: allow text selection in Quick Look
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-
-# Disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Enable spring loading for directories
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
@@ -267,9 +272,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
@@ -278,6 +280,13 @@ sudo nvram boot-args="mbasd=1"
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Remove Dropbox’s green checkmark icons in Finder
+file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
@@ -341,7 +350,8 @@ defaults write com.apple.dock showhidden -bool true
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
 # Add iOS Simulator to Launchpad
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app" "/Applications/iOS Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
 
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
@@ -420,6 +430,27 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
+# Warn about fraudulent websites
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+# Disable plug-ins
+defaults write com.apple.Safari WebKitPluginsEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+
+# Disable Java
+defaults write com.apple.Safari WebKitJavaEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+
+# Block pop-up windows
+defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+
+# Enable “Do Not Track”
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+# Update extensions automatically
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
@@ -441,9 +472,6 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 
 # Disable inline attachments (just show the icons)
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
-
-# Disable automatic spell checking
-defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
 
 ###############################################################################
 # Spotlight                                                                   #
@@ -516,10 +544,10 @@ tell application "Terminal"
 	(* Open the custom theme so that it gets added to the list
 	   of available terminal themes (note: this will open two
 	   additional terminal windows). *)
-	do shell script "open '$PWD/init/" & themeName & ".terminal'"
+	do shell script "open '$HOME/.dotfiles/scripts/macOS/init/" & themeName & ".terminal'"
 
 	(* Wait a little bit to ensure that the custom theme is added. *)
-	delay 1
+	delay 10
 
 	(* Set the custom theme as the default terminal theme. *)
 	set default settings to settings set themeName
@@ -552,8 +580,10 @@ EOD
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
 # Install the Solarized Dark theme for iTerm
-open "${PWD}/init/Solarized Dark.itermcolors"
+open "${HOME}/.dotfiles/scripts/macOS/init/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
@@ -574,6 +604,9 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 5
 
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
@@ -605,6 +638,9 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
+# Auto-play videos when opened with QuickTime Player
+defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
@@ -614,6 +650,31 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
 # Enable Debug Menu in the Mac App Store
 defaults write com.apple.appstore ShowDebugMenu -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Download newly available updates in background
+defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+
+# Install System data files & security updates
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+
+# Automatically download apps purchased on other Macs
+defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
+
+# Turn on app auto-update
+defaults write com.apple.commerce AutoUpdate -bool true
+
+# Allow the App Store to reboot machine on macOS updates
+defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+
+###############################################################################
+# Photos                                                                      #
+###############################################################################
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 ###############################################################################
 # Messages                                                                    #
@@ -682,7 +743,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 ###############################################################################
 
 # Install Sublime Text settings
-cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -r "${HOME}/.dotfiles/scripts/macOS/init/Preferences.sublime-settings" ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ###############################################################################
 # Transmission.app                                                            #
@@ -694,6 +755,7 @@ defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Do
 
 # Don’t prompt for confirmation before downloading
 defaults write org.m0k.transmission DownloadAsk -bool false
+defaults write org.m0k.transmission MagnetOpenAsk -bool false
 
 # Trash original torrent files
 defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
@@ -702,6 +764,13 @@ defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
+
+
+# IP block list.
+# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
+defaults write org.m0k.transmission BlocklistNew -bool true
+defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 ###############################################################################
 # Twitter.app                                                                 #
@@ -727,6 +796,14 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+
+###############################################################################
+# Tweetbot.app                                                                #
+###############################################################################
+
+# Bypass the annoyingly slow t.co URL shortener
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
 # Spectacle.app                                                               #
@@ -762,8 +839,8 @@ defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-	"Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-	"Transmission" "Twitter" "iCal"; do
-	killall "${app}" > /dev/null 2>&1
+	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+	"Transmission" "Tweetbot" "Twitter" "iCal"; do
+	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
