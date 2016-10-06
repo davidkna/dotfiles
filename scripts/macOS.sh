@@ -843,4 +843,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Transmission" "Tweetbot" "Twitter" "iCal"; do
 	killall "${app}" &> /dev/null
 done
+
+brew bundle --global
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
