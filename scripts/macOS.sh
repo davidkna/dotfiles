@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Based on:
-# ~/.osx — https://mths.be/osx
+# ~/.macOS — https://mths.be/macOS
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -10,7 +10,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+# Keep-alive: update existing `sudo` time stamp until `.macOS` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
@@ -484,7 +484,7 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some search results
-# Yosemite-specific search results (remove them if your are using OS X 10.9 or older):
+# Yosemite-specific search results (remove them if your are using macOS 10.9 or older):
 # 	MENU_DEFINITION
 # 	MENU_CONVERSION
 # 	MENU_EXPRESSION
@@ -544,7 +544,7 @@ tell application "Terminal"
 	(* Open the custom theme so that it gets added to the list
 	   of available terminal themes (note: this will open two
 	   additional terminal windows). *)
-	do shell script "open '$HOME/.dotfiles/scripts/macOS/init/" & themeName & ".terminal'"
+	do shell script "open '$HOME/.dotfiles/scripts/macOS/" & themeName & ".terminal'"
 
 	(* Wait a little bit to ensure that the custom theme is added. *)
 	delay 10
@@ -583,7 +583,7 @@ EOD
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 # Install the Solarized Dark theme for iTerm
-open "${HOME}/.dotfiles/scripts/macOS/init/Solarized Dark.itermcolors"
+open "${HOME}/.dotfiles/scripts/macOS/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
@@ -743,7 +743,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 ###############################################################################
 
 # Install Sublime Text settings
-cp -r "${HOME}/.dotfiles/scripts/macOS/init/Preferences.sublime-settings" ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -r "${HOME}/.dotfiles/scripts/macOS/Preferences.sublime-settings" ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ###############################################################################
 # Transmission.app                                                            #
