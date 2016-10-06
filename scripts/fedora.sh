@@ -83,6 +83,14 @@ systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
 
 ###
+# PlayOnLinux
+###
+sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
+sudo dnf install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm -y
+sudo dnf install playonlinux -y
+sudo sed -i 's/window_add_size = 25/window_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
+
+###
 # Thermald
 ###
 
