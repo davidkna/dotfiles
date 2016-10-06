@@ -83,6 +83,7 @@ brew 'neovim/neovim/neovim', args: ['with-release']
 
 cask '1password-beta'
 cask 'airvpn'
+cask 'android-studio'
 cask 'atom'
 cask 'battle-net'
 cask 'codekit'
