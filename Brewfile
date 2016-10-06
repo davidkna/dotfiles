@@ -36,6 +36,7 @@ brew 'grc'
 brew 'htop'
 brew 'hub'
 brew 'imagemagick', args: ['with-webp']
+brew  'java'
 brew 'keybase'
 brew 'libsodium'
 brew 'llvm'
