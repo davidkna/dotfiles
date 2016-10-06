@@ -9,7 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###
 # Install stuff
 ###
-sudo dnf install cowsay fortune-mod ruby cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de
+sudo dnf install cowsay fortune-mod ruby rubygems ruby-devel cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 sudo dnf install automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel -y
 
