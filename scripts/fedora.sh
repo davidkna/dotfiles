@@ -39,8 +39,8 @@ echo "" | vim -c ":PlugInstall"
 ###
 
 # Add repos
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" -y
+sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
 
 # Install stuff
 sudo dnf install gstreamer1-plugins-* ffmpeg mpv dropbox steam
@@ -49,7 +49,7 @@ sudo dnf install gstreamer1-plugins-* ffmpeg mpv dropbox steam
 # Google Chrome
 ###
 sudo rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-sudo dnf -y install https://dl.google.com/linux/direct/google-chrome-stable_current_$(uname -i).rpm
+sudo dnf -y install "https://dl.google.com/linux/direct/google-chrome-stable_current_$(uname -i).rpm"
 
 ###
 # TeX stuff
@@ -94,9 +94,9 @@ sudo sed -i 's/window_add_size = 25/window_add_size = 250/' /usr/share/playonlin
 # Thermald
 ###
 
-cd ~/Quellen
+cd ~/Quellen || exit 1
 git clone https://github.com/01org/thermal_daemon.git thermald
-cd thermald
+cd thermald || exit 1
 ./autogen.sh
 ./configure prefix=/usr
 make
