@@ -12,8 +12,9 @@ except ImportError:
 
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
-file = open('dotfiles.conf.yaml', 'r').read()
-config = yaml.load(file)
+file = open('dotfiles.conf.yaml', 'r')
+config = yaml.safe_load(file)
+file.close()
 
 def fix_path(path):
     path = os.path.expanduser(path)
