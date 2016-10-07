@@ -33,7 +33,7 @@ shell:
   description: Installing vim-plug for nvim
 - command: mkdir -p ~/.vim/backups ~/.vim/swaps ~/.vim/undo,
   description: Creating directories for vim
-- command: mkdir ~/bin
+- command: test -d ~/bin || mkdir ~/bin
   description: Creating ~/bin
 - command: touch ~/.hushlogin
   description: Creating huslogin file
