@@ -2,18 +2,17 @@
 import os
 import subprocess
 import sys
-import yaml
 
-from yaml import load, dump
+from yaml import load
 try:
-    from yaml import CLoader as Loader, CDumper as Dumper
+	from yaml import CLoader as Loader
 except ImportError:
-    from yaml import Loader, Dumper
+    from yaml import Loader
 
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 file = open('dotfiles.conf.yaml', 'r')
-config = yaml.safe_load(file)
+config = load(file, Loader=Loader)
 file.close()
 
 def fix_path(path):
