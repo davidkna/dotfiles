@@ -2,12 +2,18 @@
 import os
 import subprocess
 import sys
-import ruamel.yaml
+import yaml
+
+from yaml import load, dump
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
 
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 file = open('dotfiles.conf.yaml', 'r').read()
-config = ruamel.yaml.load(file)
+config = yaml.load(file)
 
 def fix_path(path):
     path = os.path.expanduser(path)
