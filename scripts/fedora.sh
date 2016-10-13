@@ -61,8 +61,9 @@ sudo dnf install texlive-scheme-most texlive-minted texstudio -y
 ###
 
 # Get Node 6
-curl -sL https://rpm.nodesource.com/setup_6.x | bash -
-sudo dnf install nodejs -y
+# curl -sL https://rpm.nodesource.com/setup_6.x | bash -
+# sudo dnf install nodejs -y
+sudo dnf install nodejs nodejs-devel npm -y
 
 # Get zsh plugins
 sudo npm i -g zsh-goggles
@@ -86,7 +87,7 @@ systemctl --user start syncthing.service
 # PlayOnLinux
 ###
 sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
-sudo dnf install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm -y
+# sudo dnf install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm -y
 sudo dnf install playonlinux -y
 sudo sed -i 's/window_add_size = 25/window_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
