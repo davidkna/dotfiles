@@ -1,6 +1,12 @@
 module.exports = {
-  colors: 'Tarrasch/zsh-colors',
-  highlight: 'zsh-users/zsh-syntax-highlighting',
+  colors: {
+    github: 'Tarrasch/zsh-colors',
+    standalone: false,
+  },
+  highlight: {
+   github: 'zsh-users/zsh-syntax-highlighting',
+   standalone: false,
+  },
   search: 'zsh-users/zsh-history-substring-search',
   completion: {
     github: 'zsh-users/zsh-completions',
