@@ -5,7 +5,7 @@ link:
   ~/.bashrc: zsh/common.zsh
   ~/.config/mpv: mpv
   ~/.config/nvim/init.vim: nvimrc.vim
-  ~/.config/zsh-goggles/config.js: zsh-goggles.config.js
+  ~/.config/zsh-goggles/config.toml: zsh-goggles.toml
   ~/.curlrc: curlrc.conf
   ~/.dotfiles: ''
   ~/.editorconfig: editorconfig.ini
