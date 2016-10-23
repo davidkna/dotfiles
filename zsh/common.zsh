@@ -7,7 +7,12 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export GOPATH=~/go
 export PATH=~/bin:$PATH:$GOPATH/bin
 
-[[ $- == *i* ]] && cowsay -f moose "$(fortune)" | lolcat -
-source ~/.zsh/aliases.zsh
+umask 022
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
 source ~/.zsh/$(uname).zsh
+
+cowsay -f moose "$(fortune)" | lolcat -
+source ~/.zsh/aliases.zsh

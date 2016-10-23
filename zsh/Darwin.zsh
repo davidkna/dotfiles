@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export EDITOR="vim -e"
+export EDITOR=vim
 export VISUAL=code
 
 export PATH="PATH=$PATH:/usr/local/sbin:/usr/local/share/pypy:${HOME}/.cargo/bin"

@@ -2,7 +2,7 @@
 
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
-export EDITOR="vim -e"
+export EDITOR=vim
 export VISUAL=code
 
 
