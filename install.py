@@ -9,6 +9,8 @@ try:
 except ImportError:
     from yaml import Loader
 
+os.umask(0o022)
+
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 file = open('dotfiles.conf.yaml', 'r')
