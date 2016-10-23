@@ -9,7 +9,7 @@ try:
 except ImportError:
     from yaml import Loader
 
-os.umask(0o022)
+os.umask(0o077)
 
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
