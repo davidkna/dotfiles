@@ -22,7 +22,7 @@ brew 'ddrescue'
 brew 'dnsmasq', args: ['with-libidn'], service_restart: true
 brew 'docker'
 brew 'dos2unix'
-brew 'ffmpeg', args: ['with-faac', 'with-fdk-aac', 'with-ffplay', 'with-fontconfig', 'with-freetype', 'with-libass', 'with-libbs2b', 'with-libvidstab', 'with-libvorbis', 'with-libvpx', 'with-openh264', 'with-openjpeg', 'with-openssl', 'with-opus', 'with-rtmpdump', 'with-snappy', 'with-theora', 'with-webp', 'with-x265', 'with-xz', 'with-zeromq', 'with-zimg']
+brew 'ffmpeg', args: ['--with-faac', '--with-fdk-aac', '--with-fontconfig', '--with-freetype', '--with-libass', '--with-libbs2b', '--with-libvidstab', '--with-libvorbis', '--with-libvpx', '--with-openh264', '--with-openjpeg', '--with-openssl', '--with-opus', '--with-rtmpdump', '--with-rubberband', '--with-sdl', '--with-snappy', '--with-theora', '--with-webp', '--with-x265', '--with-xz', '--with-zeromq', '--with-zimg']
 brew 'file-roller'
 brew 'fortune'
 brew 'gawk'
