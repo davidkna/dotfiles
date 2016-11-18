@@ -4,6 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -19,8 +20,9 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
-" POWERLINE
+" AIRLINE
 let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized dark'
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
