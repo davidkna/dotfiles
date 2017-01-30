@@ -7,7 +7,7 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export GOPATH=~/go
 export PATH=~/bin:$PATH:$GOPATH/bin
 
-umask 077
+# umask 077
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
