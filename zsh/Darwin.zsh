@@ -1,18 +1,23 @@
 #!/usr/bin/env zsh
 
-export EDITOR=vim
-export VISUAL=code
-
 export PATH="$PATH:/usr/local/sbin:/usr/local/share/pypy:${HOME}/.cargo/bin"
 
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; gem update'
+alias update='sudo softwareupdate -i -a; brew upgrade; brew cleanup; npm update -g; sudo gem update --system; gem update'
 
 if (( $+commands[grc] )) && (( $+commands[brew] ))
 then
   source "$(brew --prefix)/etc/grc.bashrc"
 fi
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.

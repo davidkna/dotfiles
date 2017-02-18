@@ -55,6 +55,7 @@ brew 'openssl'
 brew 'openssl@1.1'
 brew 'openvpn', args: ['with-pkcs11-helper']
 brew 'phantomjs'
+brew 'pigz'
 brew 'python'
 brew 'python3'
 brew 'ripgrep'
@@ -75,6 +76,7 @@ brew 'vapoursynth'
 brew 'wget', args: ['with-iri', 'with-libressl', 'with-pcre']
 brew 'yasm'
 brew 'youtube-dl'
+brew 'zopfli'
 brew 'zsh'
 
 brew 'homebrew/dupes/openssh', args: ['with-ldns', 'with-libressl']
