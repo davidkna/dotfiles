@@ -3,7 +3,7 @@
 export EDITOR=vim
 export VISUAL=code
 
-export PATH="PATH=$PATH:/usr/local/sbin:/usr/local/share/pypy:${HOME}/.cargo/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/local/share/pypy:${HOME}/.cargo/bin"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
