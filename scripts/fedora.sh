@@ -17,17 +17,7 @@ gem install lolcat
 chsh -s /usr/bin/zsh
 
 # TRIM
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
-
-# dnsmasq
-gem install inifile
-sudo -E ruby ~/.dotfiles/scripts/Fedora/dnsmasq.rb
-sudo cp ~/.dotfiles/scripts/Fedora/common/dnsmasq.conf /etc/NetworkManager/dnsmasq.d/unotelly.conf
-
-# lz4
-echo compress="lz4" | sudo tee /etc/dracut.conf.d/lz4.conf
-sudo dracut -f
+sudo systemctl enable --now fstrim.timer
 
 ###
 # Vim
@@ -43,7 +33,7 @@ sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
 
 # Install stuff
-sudo dnf install gstreamer1-plugins-* ffmpeg mpv dropbox steam
+sudo dnf install -y gstreamer1-plugins-* ffmpeg mpv dropbox steam
 
 ###
 # Google Chrome
@@ -77,11 +67,10 @@ zsh-goggles
 sudo dnf copr enable decathorpe/syncthing -y
 
 # Install Syncthing
-sudo dnf install -y syncthing syncthing-gtk python-nautilus
+sudo dnf install -y syncthing syncthing-gtk nautilus-python
 
 # Enable and start Syncthing
-systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
+systemctl enable --user --now syncthing.service
 
 ###
 # PlayOnLinux
@@ -89,7 +78,7 @@ systemctl --user start syncthing.service
 sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
 # sudo dnf install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm -y
 sudo dnf install playonlinux -y
-sudo sed -i 's/window_add_size = 25/window_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
+sudo sed -i 's/windows_add_size = 25/windows_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
 ###
 # Thermald
