@@ -109,9 +109,13 @@ function targz() {
 	);
 
 	local cmd="";
-	if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
-		# the .tar file is smaller than 50 MB and Zopfli is available; use it
-		cmd="zopfli";
+	if (( size < 52428800 )); then
+		if hash zopfli 2> /dev/null; then
+			# the .tar file is smaller than 50 MB and Zopfli is available; use it
+			cmd="zopfli";
+		elif hash pigz 2> /dev/null; then
+			cmd="pigz -11"
+		fi;
 	else
 		if hash pigz 2> /dev/null; then
 			cmd="pigz";
