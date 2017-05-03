@@ -42,8 +42,9 @@ brew 'llvm'
 brew 'macvim', args: ['with-lua', 'with-luajit', 'with-override-system-vim', 'with-python3']
 brew 'mas'
 brew 'megatools'
+brew 'meson'
 brew 'mono'
-brew 'mpv', args: ['with-bundle', 'with-libaacs', 'with-libarchive', 'with-libbluray', 'with-libdvdnav', 'with-libdvdread', 'with-uchardet', 'with-vapoursynth']
+brew 'mpv', args: ['with-bundle', 'with-libaacs', 'with-libarchive', 'with-libbluray', 'with-libdvdnav', 'with-libdvdread', 'with-rubberband', 'with-uchardet', 'with-vapoursynth']
 brew 'mvtools'
 brew 'nasm'
 brew 'nim'
