@@ -1,15 +1,18 @@
 async = "mafredri/zsh-async"
 pure = "sindresorhus/pure"
-search = "zsh-users/zsh-history-substring-search"
+
+[search]
+github = "zsh-users/zsh-history-substring-search"
+source = "zsh-history-substring-search.zsh"
 
 [colors]
 github = "Tarrasch/zsh-colors"
 standalone = false
 
 [completion]
-fpath = "src"
 github = "zsh-users/zsh-completions"
 source = false
+fpath = "src"
 
 [highlight]
 github = "zsh-users/zsh-syntax-highlighting"
