@@ -34,3 +34,4 @@ source ~/.zsh/$(uname).zsh
 
 cowsay -f moose "$(fortune)" | lolcat -
 source ~/.zsh/aliases.zsh
+source ~/.cargo/env
