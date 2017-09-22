@@ -5,6 +5,7 @@ export VISUAL=code
 
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
+export RUSTFLAGS="-Ctarget-cpu=native"
 export MAKEOPTS="-j5"
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
