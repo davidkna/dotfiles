@@ -9,7 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###
 # Install stuff
 ###
-sudo dnf install cowsay fortune-mod ruby rubygems ruby-devel cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de
+sudo dnf install cowsay fortune-mod ruby rubygems ruby-devel cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de thermald -y
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 sudo dnf install automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel -y
 
@@ -18,11 +18,6 @@ chsh -s /usr/bin/zsh
 
 # TRIM
 sudo systemctl enable --now fstrim.timer
-
-###
-# Vim
-###
-echo "" | vim -c ":PlugInstall"
 
 ###
 # RPMfusion
@@ -49,10 +44,6 @@ sudo dnf install texlive-scheme-most texlive-minted texstudio -y
 ###
 # Node.js
 ###
-
-# Get Node 6
-# curl -sL https://rpm.nodesource.com/setup_6.x | bash -
-# sudo dnf install nodejs -y
 sudo dnf install nodejs nodejs-devel npm -y
 
 # Get zsh plugins
@@ -80,15 +71,3 @@ sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64
 sudo dnf install playonlinux -y
 sudo sed -i 's/windows_add_size = 25/windows_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
-###
-# Thermald
-###
-
-cd ~/Quellen || exit 1
-git clone https://github.com/01org/thermal_daemon.git thermald
-cd thermald || exit 1
-./autogen.sh
-./configure prefix=/usr
-make
-sudo make install
-sudo systemctl enable thermald
