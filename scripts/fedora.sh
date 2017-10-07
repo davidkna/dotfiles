@@ -28,7 +28,7 @@ sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
 
 # Install stuff
-sudo dnf install -y gstreamer1-plugins-* ffmpeg mpv dropbox steam
+sudo dnf install -y gstreamer1-plugins-* ffmpeg mpv
 
 ###
 # Google Chrome
@@ -39,7 +39,7 @@ sudo dnf -y install "https://dl.google.com/linux/direct/google-chrome-stable_cur
 ###
 # TeX stuff
 ###
-sudo dnf install texlive-scheme-most texlive-minted texstudio -y
+sudo dnf install texlive-scheme-medium texlive-minted texstudio -y
 
 ###
 # Node.js
@@ -47,8 +47,8 @@ sudo dnf install texlive-scheme-most texlive-minted texstudio -y
 sudo dnf install nodejs nodejs-devel npm -y
 
 # Get zsh plugins
-sudo npm i -g zsh-goggles
-zsh-goggles
+sudo npm i -g zsh-goggles@1.5.9
+zgoggles
 
 ###
 # Syncthing
