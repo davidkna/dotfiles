@@ -22,6 +22,7 @@ brew 'ddrescue'
 brew 'dnsmasq', args: ['with-libidn'], service_restart: true
 brew 'docker'
 brew 'dos2unix'
+brew 'fd'
 brew 'ffmpeg', args: ['--with-faac', '--with-fdk-aac', '--with-fontconfig', '--with-freetype', '--with-libass', '--with-libbs2b', '--with-libvidstab', '--with-libvorbis', '--with-libvpx', '--with-openh264', '--with-openjpeg', '--with-openssl', '--with-opus', '--with-rtmpdump', '--with-rubberband', '--with-sdl', '--with-snappy', '--with-theora', '--with-webp', '--with-x265', '--with-xz', '--with-zeromq', '--with-zimg']
 brew 'file-roller'
 brew 'fortune'
@@ -133,12 +134,3 @@ cask 'font-open-sans'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-
-mas '1Blocker (1.2.4)', id: 1107421413
-mas 'Keynote (7.0)', id: 409183694
-mas 'Numbers (4.0)', id: 409203825
-mas 'Pages (6.0)', id: 409201541
-mas 'Stockfish (2.0.2)', id: 801463932
-mas 'The Unarchiver (3.11.1)', id: 425424353
-mas 'Tweetbot (2.4.4)', id: 557168941
-mas 'Xcode (8.0)', id: 497799835
