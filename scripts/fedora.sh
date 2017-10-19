@@ -3,7 +3,7 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.macOS` has finished
+# Keep-alive: update existing `sudo` time stamp until has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###
@@ -28,7 +28,7 @@ sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
 
 # Install stuff
-sudo dnf install -y gstreamer1-plugins-* ffmpeg mpv
+sudo dnf install -y ffmpeg
 
 ###
 # Google Chrome
@@ -54,9 +54,6 @@ zgoggles
 # Syncthing
 ###
 
-# Enable copr
-sudo dnf copr enable decathorpe/syncthing -y
-
 # Install Syncthing
 sudo dnf install -y syncthing syncthing-gtk nautilus-python
 
@@ -67,7 +64,6 @@ systemctl enable --user --now syncthing.service
 # PlayOnLinux
 ###
 sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
-# sudo dnf install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm -y
 sudo dnf install playonlinux -y
 sudo sed -i 's/windows_add_size = 25/windows_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
