@@ -37,3 +37,5 @@ shell:
   description: Creating ~/bin
 - command: touch ~/.hushlogin
   description: Creating huslogin file
+- command: curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y
+  description: Install rustup
