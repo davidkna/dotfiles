@@ -46,7 +46,7 @@ sudo dnf install texlive-scheme-medium texlive-minted texstudio -y
 sudo dnf install nodejs nodejs-devel npm -y
 
 # Get zsh plugins
-sudo npm i -g zsh-goggles@1.5.9
+sudo npm i -g zsh-goggles
 zgoggles
 
 ###
