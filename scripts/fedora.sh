@@ -14,7 +14,6 @@ sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 sudo dnf install automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel -y
 
 gem install lolcat
-chsh -s /usr/bin/zsh
 
 # TRIM
 sudo systemctl enable --now fstrim.timer
@@ -63,7 +62,7 @@ systemctl enable --user --now syncthing.service
 ###
 # PlayOnLinux
 ###
-sudo dnf install liberation-fonts wine mono wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
+sudo dnf install liberation-fonts wine wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
 sudo dnf install playonlinux -y
 sudo sed -i 's/windows_add_size = 25/windows_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
