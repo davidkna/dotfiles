@@ -9,7 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###
 # Install stuff
 ###
-sudo dnf install cowsay fortune-mod ruby rubygems ruby-devel cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de thermald -y
+sudo dnf install cowsay fortune-mod ruby rubygems ruby-devel cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang boost-devel boost-python3-devel vim htop zsh libreoffice-langpack-de thermald rigprep exa -y
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 sudo dnf install automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel -y
 
@@ -45,6 +45,10 @@ sudo dnf install texlive-scheme-medium texlive-minted texstudio -y
 ###
 sudo dnf install nodejs nodejs-devel npm -y
 
+sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+sudo dnf install yarn
+
 # Get zsh plugins
 sudo npm i -g zsh-goggles
 zgoggles
@@ -54,7 +58,7 @@ zgoggles
 ###
 
 # Install Syncthing
-sudo dnf install -y syncthing syncthing-gtk nautilus-python
+sudo dnf install -y syncthing syncthing-gtk syncthing-inotify nautilus-python
 
 # Enable and start Syncthing
 systemctl enable --user --now syncthing.service
@@ -62,7 +66,7 @@ systemctl enable --user --now syncthing.service
 ###
 # PlayOnLinux
 ###
-sudo dnf install liberation-fonts wine wine-mono mingw32-wine-gecko mingw64-wine-gecko -y
+sudo dnf install liberation-fonts wine wine-mono wine-fonts mingw32-wine-gecko mingw64-wine-gecko -y
 sudo dnf install playonlinux -y
 sudo sed -i 's/windows_add_size = 25/windows_add_size = 250/' /usr/share/playonlinux/python/lib/Variables.py
 
