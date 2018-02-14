@@ -18,4 +18,5 @@ function o() {
 	fi;
 }
 
+alias cp="cp --reflink=auto --sparse=always"
 alias update='sudo dnf upgrade -y; sudo npm update -g; sudo gem update --system; gem update'
