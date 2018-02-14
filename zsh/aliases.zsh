@@ -6,7 +6,7 @@ else # OS X `ls`
 	colorflag="-G"
 fi
 
-alias cp="cp --reflink=auto"
+alias cp="cp --reflink=auto --sparse=always"
 alias ls="command ls ${colorflag}"
 alias l="ls -lF ${colorflag}"
 alias ll="ls -lF ${colorflag}"
