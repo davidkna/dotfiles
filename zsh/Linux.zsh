@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin"
 
 if [ -d ~/.linuxbrew ]; then
 	export PATH="$HOME/.linuxbrew/bin:$PATH"
