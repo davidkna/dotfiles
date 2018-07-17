@@ -1,16 +1,12 @@
 #!/usr/bin/env zsh
-export PATH=~/bin:$PATH:$GOPATH/bin
+export PATH=~/.local/bin:$PATH:~/.cargo/bin
 export EDITOR=vim
-export VISUAL=code
+export VISUAL="code --wait"
 
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
 export RUSTFLAGS="-Ctarget-cpu=native"
 export MAKEOPTS="-j5"
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-export GOPATH=~/go
 
 export NODE_REPL_HISTORY=~/.node_history;
 export NODE_REPL_MODE='sloppy';
