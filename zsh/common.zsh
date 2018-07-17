@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-export PATH=~/.local/bin:$PATH:~/.cargo/bin
+export PATH=~/.local/bin:$PATH:~/.cargo/bin:~/.yarn/bin
 export EDITOR=vim
 export VISUAL="code --wait"
 
