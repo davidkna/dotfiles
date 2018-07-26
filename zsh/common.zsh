@@ -29,6 +29,6 @@ source ~/.zsh/$(uname).zsh
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-cowsay -f moose "$(fortune)" | lolcat -
+cowsay -f moose "$(fortune)" | lolcat -A
 source ~/.zsh/aliases.zsh
 source ~/.cargo/env
