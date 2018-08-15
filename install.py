@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
+import json
 import os
 import subprocess
 import sys
-
-from json import load
 
 os.umask(0o077)
 
 dotfile_home = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 file = open('dotfiles.conf.json', 'r')
-config = load(file, Loader=Loader)
+config = json.load(file)
 file.close()
 
 def fix_path(path):
