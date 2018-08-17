@@ -1,4 +1,4 @@
-async = "mafredri/zsh-async"
+async = { github = "mafredri/zsh-async", source = "async.zsh" }
 pure = "sindresorhus/pure"
 
 [search]
