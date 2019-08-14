@@ -5,12 +5,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost' }
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 call plug#end()
