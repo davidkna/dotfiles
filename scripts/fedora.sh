@@ -30,7 +30,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 ###
 
 # DNF packages
-sudo dnf install cowsay fortune-mod cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
+sudo dnf install fortune-mod cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
                  texlive-scheme-medium yarn nodejs nodejs-devel npm code syncthing syncthing-gtk mpv \
                  python2-nautilus google-chrome util-linux-user gnome-builder -y
@@ -44,17 +44,13 @@ flatpak install flathub com.calibre_ebook.calibre
 flatpak install flathub com.discordapp.Discord
 flatpak install flathub com.skype.Client
 flatpak install flathub com.slack.Slack
-flatpak install flathub org.mozilla.Thunderbird
 
 # Node
 yarn global add zsh-goggles
 
 # Rust
-rustup default nightly
-cd ~/Quellen
-git clone http://github.com/davidkna/lolcat-rs lolcat-rs
-cd ~/Quellen/lolcat-rs
-cargo +nightly install --path=.
+git clone http://github.com/davidkna/cowsay-rs ~/Quellen/cowsay-rs
+cargo +nightly install --path=~/Quellen/lolcat-rs
 
 ###
 # Services / Settings
