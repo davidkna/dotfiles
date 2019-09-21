@@ -30,6 +30,11 @@ source ~/.zsh/$(uname).zsh
 [ -z "$PS1" ] && return
 
 cowsay -f moose -l "$(fortune)"
+if [ -n "$ZSH_VERSION" ]; then
+    eval "$(starship init zsh)"
+elif [ -n "$BASH_VERSION" ]; then
+   eval "$(starship init bash)"
+fi
 source ~/.zsh/aliases.zsh
 
 if [ -f ~/.cargo/env ]; then

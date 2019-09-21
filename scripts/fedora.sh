@@ -50,7 +50,9 @@ yarn global add zsh-goggles
 
 # Rust
 git clone http://github.com/davidkna/cowsay-rs ~/Quellen/cowsay-rs
-cargo +nightly install --path=~/Quellen/lolcat-rs
+cargo install --path=~/Quellen/cowsay-rs
+cargo install starship
+cargo install cargo-update
 
 ###
 # Services / Settings

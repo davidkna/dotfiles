@@ -1,9 +1,7 @@
-async = { github = "mafredri/zsh-async", source = "async.zsh" }
-pure = "sindresorhus/pure"
-
 [search]
 github = "zsh-users/zsh-history-substring-search"
 source = "zsh-history-substring-search.zsh"
+standalone = false
 
 [colors]
 github = "Tarrasch/zsh-colors"
