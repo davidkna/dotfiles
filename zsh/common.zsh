@@ -29,7 +29,7 @@ source ~/.zsh/$(uname).zsh
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-cowsay -f moose -l "$(fortune)"
+~/.cargo/bin/neo-fortune cowsay -f moose -l
 if [ -n "$ZSH_VERSION" ]; then
     eval "$(starship init zsh)"
 elif [ -n "$BASH_VERSION" ]; then

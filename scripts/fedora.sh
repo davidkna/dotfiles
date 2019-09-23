@@ -49,7 +49,7 @@ flatpak install flathub com.slack.Slack
 yarn global add zsh-goggles
 
 # Rust
-git clone http://github.com/davidkna/cowsay-rs ~/Quellen/cowsay-rs
+git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
 cargo install --path=~/Quellen/cowsay-rs
 cargo install starship
 cargo install cargo-update
