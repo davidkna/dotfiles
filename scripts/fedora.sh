@@ -30,10 +30,10 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 ###
 
 # DNF packages
-sudo dnf install fortune-mod cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
+sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
-                 texlive-scheme-medium yarn nodejs nodejs-devel npm code syncthing syncthing-gtk mpv \
-                 python2-nautilus google-chrome util-linux-user gnome-builder -y
+                 texlive-scheme-medium yarn nodejs nodejs-devel npm code syncthing mpv \
+                 python2-nautilus google-chrome-stable util-linux-user -y
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
@@ -50,7 +50,7 @@ yarn global add zsh-goggles
 
 # Rust
 git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
-cargo install --path=~/Quellen/cowsay-rs
+cargo install --path="$HOME/Quellen/fortune-rs"
 cargo install starship
 cargo install cargo-update
 
