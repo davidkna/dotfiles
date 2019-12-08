@@ -13,6 +13,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Extra repos
 sudo dnf install fedora-workstation-repositories -y
 sudo dnf config-manager --set-enabled google-chrome
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
 # RPMFusion
 sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" -y
 sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
@@ -30,7 +31,7 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
                  texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv \
-                 google-chrome-stable util-linux-user langpacks-ja calibre -y
+                 google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 -y
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
