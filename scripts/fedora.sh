@@ -16,14 +16,11 @@ sudo dnf config-manager --set-enabled google-chrome
 # RPMFusion
 sudo dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" -y
 sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" -y
-# Yarn
-sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 # VS Code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 # Flathub
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ###
 # Install
@@ -32,25 +29,27 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 # DNF packages
 sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
-                 texlive-scheme-medium yarn nodejs nodejs-devel npm code syncthing mpv \
-                 python2-nautilus google-chrome-stable util-linux-user -y
+                 texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv \
+                 google-chrome-stable util-linux-user langpacks-ja calibre -y
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 
 # Flatpaks
-flatpak install flathub net.ankiweb.Anki
-flatpak install flathub com.calibre_ebook.calibre
-flatpak install flathub com.discordapp.Discord
-flatpak install flathub com.skype.Client
-flatpak install flathub com.slack.Slack
+sudo flatpak install -y flathub net.ankiweb.Anki
+sudo flatpak install -y flathub com.discordapp.Discord
+sudo flatpak install -y flathub com.skype.Client
+sudo flatpak install -y flathub com.slack.Slack
 
 # Node
-yarn global add zsh-goggles
+npx zsh-goggles
 
-# Rust
+# Rust utils
+source ~/.cargo/env
+export RUSTFLAGS="-Ctarget-cpu=native"
 git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
 cargo install --path="$HOME/Quellen/fortune-rs"
+~/.cargo/bin/neo-fortune download
 cargo install starship
 cargo install cargo-update
 
@@ -65,5 +64,4 @@ systemctl enable --user --now syncthing.service
 sudo systemctl enable --now fstrim.timer
 
 # Shell
-~/.yarn/bin/zgoggles
 sudo chsh -s $(which zsh) $(whoami)
