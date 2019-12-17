@@ -30,14 +30,13 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 # DNF packages
 sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
-                 texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv \
+                 texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv starship \
                  google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 -y
 
 # DNF groups
-sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
+sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" "Python Science" -y
 
 # Flatpaks
-sudo flatpak install -y flathub net.ankiweb.Anki
 sudo flatpak install -y flathub com.discordapp.Discord
 sudo flatpak install -y flathub com.skype.Client
 sudo flatpak install -y flathub com.slack.Slack
@@ -51,7 +50,6 @@ export RUSTFLAGS="-Ctarget-cpu=native"
 git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
 cargo install --path="$HOME/Quellen/fortune-rs"
 ~/.cargo/bin/neo-fortune download
-cargo install starship
 cargo install cargo-update
 
 ###
