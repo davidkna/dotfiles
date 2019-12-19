@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eux
+
 # Ask for the administrator password upfront
 sudo -v
 
