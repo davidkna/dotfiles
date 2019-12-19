@@ -64,3 +64,6 @@ sudo systemctl enable --now fstrim.timer
 
 # Shell
 sudo chsh -s $(which zsh) $(whoami)
+
+# HiDPI
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
