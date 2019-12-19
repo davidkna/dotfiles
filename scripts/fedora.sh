@@ -30,10 +30,10 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 ###
 
 # DNF packages
-sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh pylint \
+sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh pylint lsd \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
                  texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv starship black pandoc \
-                 google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 -y
+                 google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 tokei -y
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" "Python Science" -y
@@ -52,6 +52,7 @@ export RUSTFLAGS="-Ctarget-cpu=native"
 git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
 cargo install --path="$HOME/Quellen/fortune-rs"
 ~/.cargo/bin/neo-fortune download
+cargo install hexyl
 cargo install cargo-update
 
 ###
