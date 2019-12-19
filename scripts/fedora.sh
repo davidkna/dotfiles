@@ -39,6 +39,7 @@ sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" "Python Science" -y
 
 # Flatpaks
+sudo flatpak install -y flathub com.bitwarden.desktop
 sudo flatpak install -y flathub com.discordapp.Discord
 sudo flatpak install -y flathub com.skype.Client
 sudo flatpak install -y flathub com.slack.Slack
