@@ -28,9 +28,9 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 ###
 
 # DNF packages
-sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh \
+sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh pylint \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
-                 texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv starship \
+                 texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv starship black pandoc \
                  google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 -y
 
 # DNF groups
