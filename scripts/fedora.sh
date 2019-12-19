@@ -33,7 +33,7 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 sudo dnf install cmake ninja-build vim python3-devel python-devel llvm llvm-libs clang htop zsh pylint lsd \
                  langpacks-de ripgrep exa automake gcc gcc-c++ glib-devel dbus-glib-devel libxml2-devel ffmpeg \
                  texlive-scheme-tetex nodejs nodejs-devel npm code syncthing mpv starship black pandoc \
-                 google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 tokei -y
+                 google-chrome-stable util-linux-user langpacks-ja calibre mozilla-openh264 tokei bsdtar -y
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" "Python Science" -y
