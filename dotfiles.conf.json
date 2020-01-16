@@ -27,7 +27,7 @@
       "description": "Installing vim-plug for nvim"
     },
     {
-      "command": "curl -fLo ~/.config/mpv/scalers/ravu-r3.hook --create-dirs https://raw.githubusercontent.com/bjin/mpv-prescalers/master/vulkan/compute/ravu-r3.hook",
+      "command": "curl -fLo ~/.config/mpv/scalers/ravu-r3.hook --create-dirs https://raw.githubusercontent.com/bjin/mpv-prescalers/master/vulkan/compute/ravu-lite-r3.hook",
       "description": "Get RAVU for mpv"
     },
     {

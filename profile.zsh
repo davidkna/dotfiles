@@ -15,11 +15,11 @@ export HISTCONTROL='ignoreboth';
 export LANG='de_DE.UTF-8';
 export LC_ALL='de_DE.UTF-8';
 
-alias ls="lsd"
-alias l="lsd -l"
-alias ll="lsd -l"
-alias la="lsd -lA"
-alias tree="lsd --tree"
+alias ls="exa"
+alias l="exa -l"
+alias ll="exa -l"
+alias la="exa -lA"
+alias tree="exa --tree"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
