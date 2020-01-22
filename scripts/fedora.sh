@@ -37,9 +37,9 @@ sudo dnf install -y \
     python3-devel nodejs-devel nodejs npm texlive-scheme-tetex \
     black pylint poetry python3-notebook mathjax sscg pandoc pandoc-pdf \
     google-chrome-stable code neovim mpv calibre \
-    langpacks-de langpacks-ja mozilla-openh26 iwd wireguard \
+    langpacks-de langpacks-ja mozilla-openh264 iwd wireguard \
     ffmpeg tokei bsdtar util-linux-user htop podman \
-    zsh fish starship exa
+    zsh fish starship exa syncthing
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
