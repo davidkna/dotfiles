@@ -1,0 +1,27 @@
+###
+# Services / Settings
+###
+sudo -v
+
+mkdir -p ~/.local/bin
+
+
+{{- if eq .chezmoi.os "linux" }}
+# System Services
+sudo systemctl enable --now fstrim.timer
+
+sudo systemctl enable iwd
+echo -e '[device]\nwifi.backend=iwd' | \
+    sudo tee /etc/NetworkManager/conf.d/iwd.conf
+
+# User Services
+systemctl enable --user --now syncthing.service
+{{- end }}
+
+# Shell
+sudo chsh -s $(which zsh) $(whoami)
+
+# HiDPI
+{{- if eq .chezmoi.os "linux" }}
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+{{- end }}

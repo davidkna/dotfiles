@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+set -eux
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###
+# Repos
+###
+
+{{- if eq .chezmoi.osRelease.name "Fedora" }}
+
+sudo dnf install -y \
+    fedora-workstation-repositories \
+    "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
+    "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+
+# VS Code
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | \
+    sudo tee /etc/yum.repos.d/vscode.repo
+
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+brew bundle --global
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.name "Arch Linux" }}
+sudo pacman -S --needed --noconfirm flatpak
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+# Flathub
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+{{- end }}
+
+###
+# Install
+###
+
+{{- if eq .chezmoi.osRelease.name "Fedora" }}
+# DNF packages
+sudo dnf install -y \
+    cmake ninja-build llvm llvm-libs clang automake gcc gcc-c++ \
+    python3-devel nodejs-devel nodejs npm texlive-scheme-tetex \
+    black pylint poetry python3-notebook mathjax sscg pandoc pandoc-pdf \
+    google-chrome-stable code neovim mpv calibre \
+    langpacks-de langpacks-ja mozilla-openh264 iwd wireguard \
+    ffmpeg tokei bsdtar util-linux-user htop podman \
+    zsh fish starship exa syncthing
+
+# DNF groups
+sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
+
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.name "Arch Linux" }}
+if [[ ! -x "$(command -v yay)" ]]; then
+    git clone https://aur.archlinux.org/yay.git ~/Quellen/yay
+    makepkg --noconfirm -si ~/Quellen/yay
+fi
+
+yay -S --needed --noconfirm \
+    cmake ninja llvm llvm-libs clang base-devel python nodejs texlive-most \
+    topgrade fd pandoc pandoc-citeproc pandoc-crossref python-black google-chrome \
+    visual-studio-code-bin neovim mpv calibre iwd wireguard-tools tokei htop podman \
+    zsh fish starship exa syncthing discord rustup topgrade yarn powershell-bin
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+# Flatpaks
+sudo flatpak install -y flathub com.bitwarden.desktop
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.name "Fedora" }}
+sudo flatpak install -y flathub com.discordapp.Discord
+{{- end }}
+
+# ZSH Plugs
+if  [[ ! -d ~/.zinit ]]; then
+    mkdir -p ~/.zinit
+    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+fi
+
+# Rust utils
+if  [[ ! -x "$(command -v rustup)" ]]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+fi
+
+export RUSTFLAGS="-Ctarget-cpu=native"
+source ~/.cargo/env
+rustup default stable
+
+if  [[  ! -x ~/.cargo/bin/neo-fortune  ]]; then
+    git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
+    cargo install --path="$HOME/Quellen/fortune-rs"
+    ~/.cargo/bin/neo-fortune download
+fi
+
+if  [[ ! -x ~/.cargo/bin/cargo-install-update ]]; then
+    cargo install cargo-update
+fi
+
+if  [[ ! -x "$(command -v topgrade)" ]]; then
+    cargo install topgrade
+fi

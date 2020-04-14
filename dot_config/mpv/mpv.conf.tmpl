@@ -1,0 +1,92 @@
+# General
+profile=gpu-hq
+gpu-api=vulkan
+cursor-autohide=100
+keep-open=yes
+force-window=yes
+msg-module
+msg-color
+keepaspect
+
+
+# Subtitles
+sub-ass-override=no
+sub-font='Gandhi Sans'
+sub-blur=0.2
+sub-color=0.95
+sub-border-color=0.05/0.05/0.03
+sub-border-size=2.2
+sub-bold
+sub-spacing=0.6
+sub-margin-x=180
+sub-margin-y=36
+sub-font-size=43
+sub-font-provider=none
+
+
+# OSD/OSC
+demuxer-thread=no
+osd-font="Noto Sans"
+
+
+# Window
+autofit-larger=1600
+force-window-position=yes
+
+
+# Streaming
+hls-bitrate=max
+ytdl-format=bestvideo[height<=?1440]+bestaudio/bestvideo+bestaudio/best
+load-unsafe-playlists=yes
+
+
+# Priority
+slang=de,deu,en,eng,ja,jp,jpn
+alang=ja,jp,jpn,en,eng,de,deu
+
+
+# Subs
+demuxer-mkv-subtitle-preroll
+sub-ass-vsfilter-blur-compat=no
+sub-fix-timing=no
+
+
+# Volume
+volume=60
+
+# Screenshot
+screenshot-format=webp
+screenshot-png-compression=9
+
+# Deband
+deband=no
+deband-iterations=2
+deband-threshold=64
+deband-range=17
+deband-grain=12
+
+
+# Shaders
+{{- if eq .chezmoi.hostname "david-pc" }}
+glsl-shader="~~/shaders/FSRCNNX_x2_16-0-4-1.glsl"
+glsl-shader="~~/shaders/KrigBilateral.glsl"
+{{- end }}
+
+# Resizer
+scale=ewa_lanczos
+# alternative dscale: mitchell
+dscale=ewa_lanczos
+cscale=sinc
+cscale-window=blackman
+cscale-radius=3
+
+
+# Custom Profiles
+
+[HorribleSubs]
+profile-desc=cond:string.match(p.filename, "HorribleSubs")~=nil
+deband=yes
+
+[EraiRaws]
+profile-desc=cond:string.match(p.filename, "Erai%-raws")~=nil
+deband=yes
