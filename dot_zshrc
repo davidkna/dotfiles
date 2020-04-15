@@ -12,7 +12,6 @@ export PYTHONIOENCODING='UTF-8'
 export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
 export LC_TIME='ja_JP.UTF-8'
-export LC_COLLATE=C
 
 alias ls="exa"
 alias l="exa -l"

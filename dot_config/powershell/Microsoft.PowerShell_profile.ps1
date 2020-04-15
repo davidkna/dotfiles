@@ -14,7 +14,6 @@ $ENV:PYTHONIOENCODING='UTF-8'
 $ENV:LANG='de_DE.UTF-8'
 $ENV:LC_ALL='de_DE.UTF-8'
 $ENV:LC_TIME='ja_JP.UTF-8'
-$ENV:LC_COLLATE='C'
 
 Import-Module PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function Complete

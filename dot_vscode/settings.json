@@ -1,0 +1,45 @@
+{
+    "editor.fontFamily": "'CaskaydiaCove NF', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "files.eol": "\n",
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.intellisense.unimathsymbols.enabled": true,
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        }
+    ]
+}

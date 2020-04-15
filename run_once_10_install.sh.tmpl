@@ -94,6 +94,13 @@ if  [[ ! -d ~/.zinit ]]; then
     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 fi
 
+#  Fonts
+if  [[  ! -f '/usr/share/fonts/TTF/Caskaydia Cove Regular Nerd Font Complete.ttf' ]]; then
+    curl -Lo '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf' https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/CascadiaCode/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete.ttf?raw=true
+    sudo install -Dm644 -t /usr/share/fonts/TTF '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf'
+    sudo fc-cache -f
+fi
+
 # Rust utils
 if  [[ ! -x "$(command -v rustup)" ]]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
