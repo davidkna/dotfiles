@@ -19,6 +19,8 @@ alias l="exa -l"
 alias ll="exa -l"
 alias la="exa -lA"
 alias tree="exa --tree"
+alias vim="nvim"
+alias vi="nvim"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
