@@ -30,9 +30,9 @@ colors:
     white:   '#ffffff'
 font:
   normal:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove Nerd Font
     style: Regular
 
   bold:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove Nerd Font
     style: Bold
