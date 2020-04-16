@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'CaskaydiaCove NF', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "files.eol": "\n",
     "latex-workshop.chktex.enabled": true,
