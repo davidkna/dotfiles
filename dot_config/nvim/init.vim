@@ -61,7 +61,7 @@ Plug 'sheerun/vim-polyglot', { 'tag': 'v4.2.0' }
 Plug 'google/vim-maktaba', { 'tag': 'v0.15.0' }
 Plug 'bazelbuild/vim-bazel'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-scriptease'
@@ -88,6 +88,23 @@ endif
 
 set mouse=a " Enable mouse.
 
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running"))
@@ -98,7 +115,7 @@ if (&t_Co > 2 || has("gui_running"))
   syntax enable
   set background=dark
   " solarized won't exist if we didn't run :PlugInstall
-  silent! colorscheme solarized
+  silent! colorscheme onedark
   " Make vueSurroundingTag coloring match htmlTag. This is a hack. We match the rule found below:
   " https://github.com/altercation/vim-colors-solarized/blob/528a59f26d12278698bb946f8fb82a63711eec21/colors/solarized.vim#L762
   " Unfortunately my VimScript isn't good enough to make this not hardcoded... :(
@@ -169,6 +186,7 @@ endif
 
 " Set up vim airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
