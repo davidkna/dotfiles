@@ -108,7 +108,7 @@ if  [[ ! -x "$(command -v rustup)" ]]; then
 fi
 
 export RUSTFLAGS="-Ctarget-cpu=native"
-source ~/.cargo/env
+test -f ~/.cargo/env && source ~/.cargo/env
 rustup default stable
 
 if  [[  ! -x ~/.cargo/bin/neo-fortune  ]]; then
