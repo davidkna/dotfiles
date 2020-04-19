@@ -15,6 +15,13 @@ $ENV:LANG='de_DE.UTF-8'
 $ENV:LC_ALL='de_DE.UTF-8'
 $ENV:LC_TIME='ja_JP.UTF-8'
 
+Set-Alias -Name ls -Value "lsd"
+function l { lsd -l $args }
+function la { lsd -lA $args }
+function tree { lsd --tree $args }
+Set-Alias -Name vi -Value "nvim"
+Set-Alias -Name vim -Value "nvim"
+
 Import-Module PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
