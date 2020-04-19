@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-$ENV:Path += ":~/bin:~/.local/bin:~/.cargo/bin"
+$ENV:PATH += ":~/bin:~/.local/bin:~/.cargo/bin"
 $ENV:EDITOR="nvim"
 $ENV:VISUAL="code --wait"
 
