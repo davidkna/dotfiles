@@ -21,7 +21,8 @@ sub-spacing=0.6
 sub-margin-x=180
 sub-margin-y=36
 sub-font-size=43
-sub-font-provider=none
+sub-auto=fuzzy
+audio-file-auto=fuzzy
 
 
 # OSD/OSC
@@ -36,8 +37,9 @@ force-window-position=yes
 
 # Streaming
 hls-bitrate=max
-ytdl-format=bestvideo[height<=?1440]+bestaudio/bestvideo+bestaudio/best
+ytdl-format=(bestvideo[fps>30]/bestvideo[vcodec=vp9]/bestvideo)+(bestaudio[acodec=opus]/bestaudio)/best
 load-unsafe-playlists=yes
+demuxer-lavf-o=live_start_index=-1
 
 
 # Priority
@@ -46,17 +48,22 @@ alang=ja,jp,jpn,en,eng,de,deu
 
 
 # Subs
+blend-subtitles=yes
 demuxer-mkv-subtitle-preroll
 sub-ass-vsfilter-blur-compat=no
 sub-fix-timing=no
+sub-gauss=1.0
+sub-gray=yes
 
 
 # Volume
-volume=60
+volume=70
 
 # Screenshot
 screenshot-format=webp
-screenshot-png-compression=9
+screenshot-high-bit-depth=yes
+screenshot-webp-lossless=yes
+screenshot-webp-compression=6
 
 # Deband
 deband=no
@@ -65,6 +72,12 @@ deband-threshold=64
 deband-range=17
 deband-grain=12
 
+
+[extension.gif]
+loop-file=yes
+
+[extension.webm]
+loop-file=yes
 
 # Shaders
 {{- if eq .chezmoi.hostname "david-pc" }}
@@ -79,14 +92,3 @@ dscale=ewa_lanczos
 cscale=sinc
 cscale-window=blackman
 cscale-radius=3
-
-
-# Custom Profiles
-
-[HorribleSubs]
-profile-desc=cond:string.match(p.filename, "HorribleSubs")~=nil
-deband=yes
-
-[EraiRaws]
-profile-desc=cond:string.match(p.filename, "Erai%-raws")~=nil
-deband=yes
