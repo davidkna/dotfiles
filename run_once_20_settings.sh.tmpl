@@ -23,6 +23,9 @@ systemctl enable --user --now syncthing.service
 
 # Gnome Terminal
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/one-gnome-terminal/aef1162226641279351d2a4cd21838e9433046d7/one-dark.sh)"
+
+# Tailscale
+sudo systemctl enable --now tailscaled
 {{- end }}
 
 # Shell
