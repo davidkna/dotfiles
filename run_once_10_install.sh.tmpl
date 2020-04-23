@@ -27,6 +27,9 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | \
     sudo tee /etc/yum.repos.d/vscode.repo
 
+# Tailscale
+sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
@@ -55,7 +58,7 @@ sudo dnf install -y \
     google-chrome-stable code neovim mpv calibre \
     langpacks-de langpacks-ja mozilla-openh264 iwd wireguard \
     ffmpeg tokei bsdtar util-linux-user htop podman \
-    zsh fish starship exa syncthing fzf lsd
+    zsh fish starship exa syncthing fzf lsd tailscale
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
@@ -73,15 +76,13 @@ yay -S --needed --noconfirm \
     topgrade fd pandoc pandoc-citeproc pandoc-crossref python-black google-chrome \
     visual-studio-code-bin neovim mpv calibre iwd wireguard-tools tokei htop podman \
     zsh fish starship exa syncthing discord rustup topgrade yarn powershell-bin fzf \
-    lsd npm
+    lsd npm tailscale bitwarden-cli bitwarden-bin
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }}
-# Flatpaks
-sudo flatpak install -y flathub com.bitwarden.desktop
-{{- end }}
 
 {{- if eq .chezmoi.osRelease.name "Fedora" }}
+# Flatpaks
+sudo flatpak install -y flathub com.bitwarden.desktop
 sudo flatpak install -y flathub com.discordapp.Discord
 {{- end }}
 
