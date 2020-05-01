@@ -25,5 +25,5 @@ curl -fL 'https://github.com/mpv-player/mpv/raw/master/TOOLS/lua/autocrop.lua' \
     -o  "$MPV_DIR/scripts/autocrop.lua"
 curl -fL 'https://github.com/mfcc64/mpv-scripts/raw/master/visualizer.lua' \
     -o  "$MPV_DIR/scripts/visualizer.lua"
-curl -fL 'https://github.com/jonniek/mpv-playlistmanager/blob/master/playlistmanager.lua' \
+curl -fL 'https://github.com/jonniek/mpv-playlistmanager/raw/master/playlistmanager.lua' \
     -o  "$MPV_DIR/scripts/playlistmanager.lua"
