@@ -87,11 +87,20 @@ scale=ewa_lanczos
 cscale=mitchell
 dscale=gaussian
 fbo-format=rgba16hf
-{{- else }}
-scale=ewa_lanczossharp
-dscale=ewa_lanczos
-cscale=ewa_lanczossoft
 {{- end }}
+
+# Interpolation
+video-sync=display-resample
+interpolation=yes
+{{- if eq .chezmoi.hostname "david-pc" }}
+tscale=box
+tscale-window=sphinx
+tscale-radius=1.0
+tscale-clamp=0.0
+{{- end }}
+
+# Interlace
+deinterlace=auto
 
 [extension.gif]
 loop-file=yes
