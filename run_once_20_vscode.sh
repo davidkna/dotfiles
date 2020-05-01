@@ -17,5 +17,5 @@ code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.Go
 code --install-extension redhat.vscode-yaml
 code --install-extension redhat.vscode-xml
-code --install-extension rust-lang.rust
+code --install-extension matklad.rust-analyzer
 code --install-extension VisualStudioExptTeam.vscodeintellicode
