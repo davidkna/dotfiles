@@ -7,7 +7,10 @@ force-window=yes
 msg-module
 msg-color
 keepaspect
-
+save-position-on-quit
+{{- if eq .chezmoi.hostname "david-laptop" }}
+hwdec=auto-copy
+{{- end }}
 
 # Subtitles
 sub-ass-override=no
@@ -22,18 +25,21 @@ sub-margin-x=180
 sub-margin-y=36
 sub-font-size=43
 sub-auto=fuzzy
-audio-file-auto=fuzzy
 
+blend-subtitles=yes
+demuxer-mkv-subtitle-preroll
+sub-ass-vsfilter-blur-compat=no
+sub-fix-timing=no
+sub-gauss=1.0
+sub-gray=yes
+sub-ass-vsfilter-blur-compat=yes
 
 # OSD/OSC
-demuxer-thread=no
 osd-font="Noto Sans"
-
 
 # Window
 autofit-larger=1600
 force-window-position=yes
-
 
 # Streaming
 hls-bitrate=max
@@ -41,29 +47,20 @@ ytdl-format=(bestvideo[fps>30]/bestvideo[vcodec=vp9]/bestvideo)+(bestaudio[acode
 load-unsafe-playlists=yes
 demuxer-lavf-o=live_start_index=-1
 
-
 # Priority
-slang=de,deu,en,eng,ja,jp,jpn
-alang=ja,jp,jpn,en,eng,de,deu
+slang=de,deu,ger,en,eng,ja,jp,jpn
+alang=ja,jp,jpn,en,eng,de,deu,ger
 
-
-# Subs
-blend-subtitles=yes
-demuxer-mkv-subtitle-preroll
-sub-ass-vsfilter-blur-compat=no
-sub-fix-timing=no
-sub-gauss=1.0
-sub-gray=yes
-
-
-# Volume
+# Audio
 volume=70
+audio-file-auto=fuzzy
 
 # Screenshot
 screenshot-format=webp
 screenshot-high-bit-depth=yes
 screenshot-webp-lossless=yes
 screenshot-webp-compression=6
+screenshot-template="%f-%wH.%wM.%wS.%wT-#%#00n"
 
 # Deband
 deband=no
@@ -72,23 +69,32 @@ deband-threshold=64
 deband-range=17
 deband-grain=12
 
+# Dither
+dither-depth=auto
+{{- if eq .chezmoi.hostname "david-pc" }}
+dither=error-diffusion
+error-diffusion=floyd-steinberg
+{{- end }}
+
+
+# Resizer
+{{- if eq .chezmoi.hostname "david-pc" }}
+glsl-shader="~~/shaders/noise_static_luma.hook"
+glsl-shader="~~/shaders/FSRCNNX_x2_16-0-4-1.glsl"
+glsl-shader="~~/shaders/KrigBilateral.glsl"
+glsl-shader="~~/shaders/SSimDownscaler.glsl"
+scale=ewa_lanczos
+cscale=mitchell
+dscale=gaussian
+fbo-format=rgba16hf
+{{- else }}
+scale=ewa_lanczossharp
+dscale=ewa_lanczos
+cscale=ewa_lanczossoft
+{{- end }}
 
 [extension.gif]
 loop-file=yes
 
 [extension.webm]
 loop-file=yes
-
-# Shaders
-{{- if eq .chezmoi.hostname "david-pc" }}
-glsl-shader="~~/shaders/FSRCNNX_x2_16-0-4-1.glsl"
-glsl-shader="~~/shaders/KrigBilateral.glsl"
-{{- end }}
-
-# Resizer
-scale=ewa_lanczos
-# alternative dscale: mitchell
-dscale=ewa_lanczos
-cscale=sinc
-cscale-window=blackman
-cscale-radius=3
