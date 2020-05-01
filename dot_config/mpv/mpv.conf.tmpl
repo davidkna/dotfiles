@@ -8,6 +8,7 @@ msg-module
 msg-color
 keepaspect
 save-position-on-quit
+no-hidpi-window-scale
 {{- if eq .chezmoi.hostname "david-laptop" }}
 hwdec=auto-copy
 {{- end }}
@@ -63,7 +64,7 @@ screenshot-webp-compression=6
 screenshot-template="%f-%wH.%wM.%wS.%wT-#%#00n"
 
 # Deband
-deband=no
+deband=yes
 deband-iterations=2
 deband-threshold=64
 deband-range=17
@@ -79,7 +80,6 @@ error-diffusion=floyd-steinberg
 
 # Resizer
 {{- if eq .chezmoi.hostname "david-pc" }}
-glsl-shader="~~/shaders/noise_static_luma.hook"
 glsl-shader="~~/shaders/FSRCNNX_x2_16-0-4-1.glsl"
 glsl-shader="~~/shaders/KrigBilateral.glsl"
 glsl-shader="~~/shaders/SSimDownscaler.glsl"
