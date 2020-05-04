@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export PATH=~/bin:~/.local/bin:"$PATH"
 export EDITOR=nvim
 export VISUAL="code --wait"
@@ -13,6 +15,9 @@ export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
 export LC_TIME='ja_JP.UTF-8'
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 alias ls="lsd"
 alias l="lsd -l"
 alias ll="lsd -l"
@@ -21,39 +26,28 @@ alias tree="lsd --tree"
 alias vim="nvim"
 alias vi="nvim"
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 if [ -f ~/.cargo/env ]; then
   source ~/.cargo/env
 fi
 
 source ~/.zinit/bin/zinit.zsh
 
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-      zdharma/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions
-
-zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light trapd00r/LS_COLORS
-
-bindkey -r '^[[A'
-bindkey -r '^[[B'
-function __bind_history_keys() {
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-}
-zinit ice wait lucid atload'__bind_history_keys'
-zinit light zsh-users/zsh-history-substring-search
-
-# Case insensitive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zinit wait lucid for \
+ atinit"zpcompinit; zpcdreplay" \
+  Aloxaf/fzf-tab \
+ blockf \
+    zdharma/fast-syntax-highlighting \
+ atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions \
+  bindmap='UPAR -> ^history-substring-search-up; DOWNAR -> history-substring-search-down' \
+    zsh-users/zsh-history-substring-search \
+  atclone"starship init zsh --print-full-init > starship.zsh" \
+  atpull'%atclone' pick"starship.zsh" nocompile'!' \
+    davidkna/null
 
 ~/.cargo/bin/neo-fortune cowsay -f moose -l
-source <(starship init zsh --print-full-init)
+
+export PS1='%{[1;36m%}~%{[0m%}
+%{[1;32m%}❯%{[0m%} '
