@@ -42,10 +42,11 @@ zinit wait lucid for \
  blockf \
     zsh-users/zsh-completions \
   bindmap='UPAR -> ^history-substring-search-up; DOWNAR -> history-substring-search-down' \
-    zsh-users/zsh-history-substring-search \
-  atclone"starship init zsh --print-full-init > starship.zsh" \
-  atpull'%atclone' pick"starship.zsh" nocompile'!' \
-    davidkna/null
+    zsh-users/zsh-history-substring-search
+
+zinit ice atclone"starship init zsh --print-full-init > starship.zsh" \
+      atpull'%atclone' pick"starship.zsh" nocompile'!'
+zinit light davidkna/null
 
 ~/.cargo/bin/neo-fortune cowsay -f moose -l
 
@@ -80,6 +81,3 @@ setopt notify
 setopt path_dirs
 setopt rc_quotes
 setopt share_history
-
-export PS1='%{[1;36m%}~%{[0m%}
-%{[1;32m%}❯%{[0m%} '
