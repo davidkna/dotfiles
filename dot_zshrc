@@ -8,9 +8,7 @@ export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
 export RUSTFLAGS="-Ctarget-cpu=native"
 
-# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
-
 export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
 export LC_TIME='ja_JP.UTF-8'
@@ -25,6 +23,12 @@ alias la="lsd -lA"
 alias tree="lsd --tree"
 alias vim="nvim"
 alias vi="nvim"
+alias cat="bat --paging=never"
+
+export BAT_THEME="TwoDark"
+export PAGER="less -M"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 if [ -f ~/.cargo/env ]; then
   source ~/.cargo/env
