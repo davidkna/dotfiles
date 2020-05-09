@@ -52,7 +52,7 @@ zinit ice atclone"starship init zsh --print-full-init > starship.zsh" \
       atpull'%atclone' pick"starship.zsh" nocompile'!'
 zinit light davidkna/null
 
-~/.cargo/bin/lolcow-fortune cowsay -fmoose -L -W60
+~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 
 
 autoload -U colors && colors
