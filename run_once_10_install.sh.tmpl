@@ -113,9 +113,8 @@ test -f ~/.cargo/env && source ~/.cargo/env
 rustup default stable
 
 if  [[  ! -x ~/.cargo/bin/neo-fortune  ]]; then
-    git clone http://github.com/davidkna/fortune-rs ~/Quellen/fortune-rs
-    cargo install --path="$HOME/Quellen/fortune-rs"
-    ~/.cargo/bin/neo-fortune download
+    cargo install lolcow-fortune
+    lolcow-fortune download
 fi
 
 if  [[ ! -x ~/.cargo/bin/cargo-install-update ]]; then

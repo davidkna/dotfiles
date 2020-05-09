@@ -27,5 +27,5 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-&neo-fortune cowsay -f moose -l
+&lolcow-fortune cowsay -fmoose -L
 &starship init powershell --print-full-init | Out-String | Invoke-Expression
