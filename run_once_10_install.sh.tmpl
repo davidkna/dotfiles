@@ -112,8 +112,8 @@ export RUSTFLAGS="-Ctarget-cpu=native"
 test -f ~/.cargo/env && source ~/.cargo/env
 rustup default stable
 
-if  [[  ! -x ~/.cargo/bin/neo-fortune  ]]; then
-    cargo install lolcow-fortune
+if  [[  ! -x ~/.cargo/bin/lolcow-fortune  ]]; then
+    cargo install --featues mimalloc lolcow-fortune
     lolcow-fortune download
 fi
 
