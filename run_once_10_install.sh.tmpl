@@ -113,7 +113,7 @@ test -f ~/.cargo/env && source ~/.cargo/env
 rustup default stable
 
 if  [[  ! -x ~/.cargo/bin/lolcow-fortune  ]]; then
-    cargo install --featues mimalloc lolcow-fortune
+    cargo install --features mimalloc lolcow-fortune
     lolcow-fortune download
 fi
 
