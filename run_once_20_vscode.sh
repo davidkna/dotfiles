@@ -15,7 +15,7 @@ code --install-extension MS-CEINTL.vscode-language-pack-de
 code --install-extension ms-python.python
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode.cpptools
-code --install-extension ms-vscode.Go
+code --install-extension golang.go
 code --install-extension redhat.vscode-yaml
 code --install-extension redhat.vscode-xml
 code --install-extension matklad.rust-analyzer
