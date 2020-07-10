@@ -12,6 +12,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension James-Yu.latex-workshop
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension MS-CEINTL.vscode-language-pack-de
+code --install-extension ms-vscode.hexeditor
 code --install-extension ms-python.python
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode.cpptools
