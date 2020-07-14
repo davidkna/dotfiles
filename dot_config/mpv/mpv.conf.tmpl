@@ -36,6 +36,7 @@ sub-gray=yes
 sub-ass-vsfilter-blur-compat=yes
 
 # OSD/OSC
+title=${media-title} [${time-pos}${!duration==0: / ${duration}}]
 osd-font="Noto Sans"
 
 # Window
@@ -53,7 +54,7 @@ slang=de,deu,ger,en,eng,ja,jp,jpn
 alang=ja,jp,jpn,en,eng,de,deu,ger
 
 # Audio
-volume=70
+audio-pitch-correction=yes
 audio-file-auto=fuzzy
 
 # Screenshot
@@ -87,6 +88,7 @@ scale=ewa_lanczos
 cscale=mitchell
 dscale=gaussian
 fbo-format=rgba16hf
+linear-downscaling=no
 {{- end }}
 
 # Interpolation
@@ -98,9 +100,6 @@ tscale-window=sphinx
 tscale-radius=1.0
 tscale-clamp=0.0
 {{- end }}
-
-# Interlace
-deinterlace=auto
 
 [extension.gif]
 loop-file=yes
