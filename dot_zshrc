@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 export PATH=~/bin:~/.local/bin:"$PATH"
-export EDITOR=nvim
+export EDITOR=micro
 export VISUAL="code --wait"
 
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
