@@ -25,5 +25,9 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
+if (!$isWindows) [
+  Import-Module Microsoft.PowerShell.UnixCompleters
+}
+
 &~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 &starship init powershell --print-full-init | Out-String | Invoke-Expression
