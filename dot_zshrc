@@ -16,11 +16,11 @@ export LC_TIME='ja_JP.UTF-8'
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-alias ls="lsd"
-alias l="lsd -l"
-alias ll="lsd -l"
-alias la="lsd -lA"
-alias tree="lsd --tree"
+alias ls="exa --icons"
+alias l="exa -l --icons"
+alias ll="exa -l --icons"
+alias la="exa -lA --icons"
+alias tree="exa --tree --icons"
 alias vim="nvim"
 alias vi="nvim"
 alias cat="bat -pp"
