@@ -48,9 +48,7 @@ zinit wait lucid for \
   bindmap='UPAR -> ^history-substring-search-up; DOWNAR -> history-substring-search-down' \
     zsh-users/zsh-history-substring-search
 
-zinit ice atclone"starship init zsh --print-full-init > starship.zsh" \
-      atpull'%atclone' pick"starship.zsh" nocompile'!'
-zinit light davidkna/null
+source <(starship init zsh --print-full-init)
 
 ~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 
