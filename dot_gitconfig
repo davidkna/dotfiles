@@ -34,7 +34,7 @@
     diffFilter = delta --color-only
 
 [delta]
-    features = side-by-side line-numbers decorations
+    features = line-numbers decorations
     syntax-theme = TwoDark
 
 [delta "decorations"]
