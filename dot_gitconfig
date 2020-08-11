@@ -1,41 +1,41 @@
 [core]
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-	pager = delta
+    # Use custom `.gitignore` and `.gitattributes`
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+    pager = delta
 
 [diff]
-	# Detect copies as well as renames
-	renames = copies
+    # Detect copies as well as renames
+    renames = copies
 
     colorMoved = default
 
 [diff "bin"]
-	textconv = hexyl
+    textconv = hexyl
 
 [merge]
 
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
 
 [push]
 
-	default = simple
-	# Make `git push` push relevant annotated tags when pushing branches out.
-	followTags = true
+    default = simple
+    # Make `git push` push relevant annotated tags when pushing branches out.
+    followTags = true
 
 [pull]
-        ff = true
-        rebase = true
+    ff = true
+    rebase = true
 [rebase]
-        autostash = true
+    autostash = true
 
 [interactive]
     diffFilter = delta --color-only
 
 [delta]
     features = side-by-side line-numbers decorations
-	syntax-theme = TwoDark
+    syntax-theme = TwoDark
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
@@ -43,11 +43,11 @@
     file-decoration-style = none
 
 [fetch]
-	prune = true
+    prune = true
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [user]
-	email = davidkna@users.noreply.github.com
-	name = David Knaack
+    email = davidkna@users.noreply.github.com
+    name = David Knaack
