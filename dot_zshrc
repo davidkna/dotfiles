@@ -44,11 +44,10 @@ zinit wait lucid for \
  atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
  blockf \
-    zsh-users/zsh-completions \
-  bindmap='UPAR -> ^history-substring-search-up; DOWNAR -> history-substring-search-down' \
-    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-completions
 
 source <(starship init zsh --print-full-init)
+eval "$(direnv hook zsh)"
 
 ~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 
