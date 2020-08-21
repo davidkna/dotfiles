@@ -82,3 +82,7 @@ setopt notify
 setopt path_dirs
 setopt rc_quotes
 setopt share_history
+
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zhistory
