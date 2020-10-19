@@ -1,5 +1,8 @@
 #!/usr/bin/env pwsh
 
+# Use UTF-8 everywhere
+$OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $ENV:PATH += ":~/bin:~/.local/bin:~/.cargo/bin"
 $ENV:EDITOR="micro"
 $ENV:VISUAL="code --wait"
