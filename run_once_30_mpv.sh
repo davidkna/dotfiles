@@ -19,8 +19,6 @@ curl -fL 'https://gist.github.com/igv/36508af3ffc84410fe39761d6969be10/raw/a9e59
 mkdir -p "$MPV_DIR/scripts"
 curl -fL 'https://github.com/mpv-player/mpv/raw/master/TOOLS/lua/autoload.lua' \
     -o  "$MPV_DIR/scripts/autoload.lua"
-curl -fL 'https://github.com/wiiaboo/mpv-scripts/raw/master/auto-profiles.lua' \
-    -o  "$MPV_DIR/scripts/auto-profiles.lua"
 curl -fL 'https://github.com/mpv-player/mpv/raw/master/TOOLS/lua/autocrop.lua' \
     -o  "$MPV_DIR/scripts/autocrop.lua"
 curl -fL 'https://github.com/mfcc64/mpv-scripts/raw/master/visualizer.lua' \
