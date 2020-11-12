@@ -67,12 +67,12 @@ sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 {{- end }}
 
 {{- if eq .chezmoi.osRelease.name "Arch Linux" }}
-if [[ ! -x "$(command -v yay)" ]]; then
-    git clone https://aur.archlinux.org/yay.git ~/Quellen/yay
-    makepkg --noconfirm -si ~/Quellen/yay
+if [[ ! -x "$(command -v paru)" ]]; then
+    git clone https://aur.archlinux.org/paru.git ~/Quellen/paru
+    makepkg --noconfirm -si ~/Quellen/paru
 fi
 
-yay -S --needed --noconfirm \
+paru -S --needed --noconfirm \
     cmake ninja llvm llvm-libs clang base-devel python nodejs texlive-most \
     topgrade fd pandoc pandoc-citeproc pandoc-crossref python-black google-chrome \
     visual-studio-code-bin neovim mpv calibre iwd wireguard-tools tokei htop podman \
