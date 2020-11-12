@@ -98,11 +98,13 @@ if  [[ ! -d ~/.zinit ]]; then
 fi
 
 #  Fonts
+{{- if eq .chezmoi.os "linux" }}
 if  [[  ! -f '/usr/share/fonts/TTF/Caskaydia Cove Regular Nerd Font Complete.ttf' ]]; then
     curl -Lo '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf' https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/CascadiaCode/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete.ttf?raw=true
     sudo install -Dm644 -t /usr/share/fonts/TTF '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf'
     sudo fc-cache -f
 fi
+{{- end }}
 
 # Rust utils
 if  [[ ! -x "$(command -v rustup)" ]]; then
@@ -111,7 +113,6 @@ fi
 
 export RUSTFLAGS="-Ctarget-cpu=native"
 test -f ~/.cargo/env && source ~/.cargo/env
-rustup default stable
 
 if  [[  ! -x ~/.cargo/bin/lolcow-fortune  ]]; then
     cargo install --features mimalloc lolcow-fortune
