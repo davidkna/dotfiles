@@ -1,4 +1,3 @@
-brew 'archey'
 brew 'bat'
 brew 'bitwarden-cli'
 brew 'black'
