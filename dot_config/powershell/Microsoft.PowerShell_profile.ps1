@@ -8,8 +8,7 @@ $ENV:EDITOR="micro"
 $ENV:VISUAL="code --wait"
 
 $ENV:CFLAGS="${CFLAGS} -march=native -O2 -pipe"
-$ENV:CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
-$ENV:RUSTFLAGS="-Ctarget-cpu=native"
+$ENV:CXXFLAGS = "${CXXFLAGS} -march=native -O2 -pipe"
 $ENV:PYTHONIOENCODING='UTF-8'
 
 $ENV:LANG='de_DE.UTF-8'

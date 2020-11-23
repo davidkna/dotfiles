@@ -111,7 +111,6 @@ if  [[ ! -x "$(command -v rustup)" ]]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 fi
 
-export RUSTFLAGS="-Ctarget-cpu=native"
 test -f ~/.cargo/env && source ~/.cargo/env
 
 if  [[  ! -x ~/.cargo/bin/lolcow-fortune  ]]; then

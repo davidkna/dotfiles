@@ -6,7 +6,6 @@ export VISUAL="code --wait"
 
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
-export RUSTFLAGS="-Ctarget-cpu=native"
 
 export PYTHONIOENCODING='UTF-8'
 export LANG='de_DE.UTF-8'
