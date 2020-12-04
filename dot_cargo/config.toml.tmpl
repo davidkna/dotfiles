@@ -1,0 +1,17 @@
+{{- if eq .chezmoi.arch "amd64" }}
+[target.'cfg(target_arch="x86_64")']
+rustflags = ["-Ctarget-cpu=native"]
+
+{{- else if eq .chezmoi.arch "arm64" }}
+[target.'cfg(target_arch="aarch64")']
+rustflags = ["-Ctarget-cpu=native"]
+
+{{- else if eq .chezmoi.arch "arm" }}
+[target.'cfg(target_arch="arm")']
+rustflags = ["-Ctarget-cpu=native"]
+
+{{- else if eq .chezmoi.arch "mips" }}
+[target.'cfg(target_arch="mips")']
+rustflags = ["-Ctarget-cpu=native"]
+
+{{- end }}
