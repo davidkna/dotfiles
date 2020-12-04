@@ -32,7 +32,7 @@ sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tail
 
 {{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64") }}
 brew bundle --global
 {{- end }}
 
