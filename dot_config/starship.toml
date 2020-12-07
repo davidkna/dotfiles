@@ -12,6 +12,9 @@ symbol = " "
 [dart]
 symbol = " "
 
+[directory]
+read_only = " "
+
 [docker]
 symbol = " "
 
@@ -67,7 +70,7 @@ symbol = " "
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = " "
 
 [swift]
 symbol = "ﯣ "
