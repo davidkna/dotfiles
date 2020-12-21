@@ -11,6 +11,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###
 # Repos
 ###
+{{- if eq .chezmoi.os "linux" }}
 
 {{- if eq .chezmoi.osRelease.name "Fedora" }}
 
@@ -30,24 +31,19 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 # Tailscale
 sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
-{{- end }}
-
-{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64") }}
-brew bundle --global
-{{- end }}
-
-{{- if eq .chezmoi.osRelease.name "Arch Linux" }}
+{{- else if eq .chezmoi.osRelease.name "Arch Linux" }}
 sudo pacman -S --needed --noconfirm flatpak
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }}
 # Flathub
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-{{- end }}
+
+{{- end}}
 
 ###
 # Install
 ###
+{{- if eq .chezmoi.os "linux" }}
 
 {{- if eq .chezmoi.osRelease.name "Fedora" }}
 # DNF packages
@@ -64,9 +60,12 @@ sudo dnf install -y \
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
 
-{{- end }}
+# Flatpaks
+sudo flatpak install -y flathub com.bitwarden.desktop
+sudo flatpak install -y flathub com.discordapp.Discord
 
-{{- if eq .chezmoi.osRelease.name "Arch Linux" }}
+
+{{- else if eq .chezmoi.osRelease.name "Arch Linux" }}
 if [[ ! -x "$(command -v paru)" ]]; then
     git clone https://aur.archlinux.org/paru.git ~/Quellen/paru
     makepkg --noconfirm -si ~/Quellen/paru
@@ -80,11 +79,10 @@ paru -S --needed --noconfirm \
     lsd npm tailscale bitwarden-cli bitwarden-bin bat direnv git-delta
 {{- end }}
 
+{{- else if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64") }}
 
-{{- if eq .chezmoi.osRelease.name "Fedora" }}
-# Flatpaks
-sudo flatpak install -y flathub com.bitwarden.desktop
-sudo flatpak install -y flathub com.discordapp.Discord
+brew bundle --global
+
 {{- end }}
 
 # Vim Plug
@@ -97,35 +95,30 @@ if  [[ ! -d ~/.zinit ]]; then
     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 fi
 
-#  Fonts
-{{- if eq .chezmoi.os "linux" }}
-if  [[  ! -f '/usr/share/fonts/TTF/Caskaydia Cove Regular Nerd Font Complete.ttf' ]]; then
-    curl -Lo '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf' https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/CascadiaCode/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete.ttf?raw=true
-    sudo install -Dm644 -t /usr/share/fonts/TTF '/tmp/Caskaydia Cove Regular Nerd Font Complete.ttf'
-    sudo fc-cache -f
-fi
-{{- end }}
-
 # Rust utils
 if  [[ ! -x "$(command -v rustup)" ]]; then
+{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+{{- else }}
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain beta -y
+{{- end }}
 fi
 
-test -f ~/.cargo/env && source ~/.cargo/env
+export PATH=~/.cargo/bin:"$PATH"
 
-if  [[  ! -x ~/.cargo/bin/lolcow-fortune  ]]; then
-    cargo install --features mimalloc lolcow-fortune
+if [[ ! -x "$(command -v lolcow-fortune)" ]]; then
+    cargo install lolcow-fortune
     lolcow-fortune download
 fi
 
-if  [[ ! -x ~/.cargo/bin/cargo-install-update ]]; then
+if [[ ! -x "$(command -v cargo-install-update)" ]]; then
     cargo install cargo-update
 fi
 
-if  [[ ! -x "$(command -v topgrade)" ]]; then
+if [[ ! -x "$(command -v topgrade)" ]]; then
     cargo install topgrade
 fi
 
-if  [[ ! -x "$(command -v hexyl)" ]]; then
+if [[ ! -x "$(command -v hexyl)" ]]; then
     cargo install hexyl
 fi
