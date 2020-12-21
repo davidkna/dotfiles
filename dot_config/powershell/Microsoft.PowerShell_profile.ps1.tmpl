@@ -5,10 +5,18 @@ $OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = [System
 
 $ENV:PATH += ":~/bin:~/.local/bin:~/.cargo/bin"
 $ENV:EDITOR="micro"
-$ENV:VISUAL="code --wait"
 
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+$ENV:VISUAL="code-insiders --wait"
+{{- else }}
+$ENV:VISUAL="code --wait"
+{{- end }}
+
+{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
 $ENV:CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 $ENV:CXXFLAGS = "${CXXFLAGS} -march=native -O2 -pipe"
+{{- end }}
+
 $ENV:PYTHONIOENCODING='UTF-8'
 
 $ENV:LANG='de_DE.UTF-8'
