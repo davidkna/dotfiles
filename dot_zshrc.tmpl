@@ -1,11 +1,19 @@
 #!/usr/bin/env zsh
 
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+export PATH=~/bin:~/.local/bin:/opt/homebrew/bin:"$PATH"
+export VISUAL="code-insiders --wait"
+{{- else }}
 export PATH=~/bin:~/.local/bin:"$PATH"
-export EDITOR=micro
 export VISUAL="code --wait"
+{{- end }}
 
+export EDITOR=micro
+
+{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
 export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
 export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
+{{- end }}
 
 export PYTHONIOENCODING='UTF-8'
 export LANG='de_DE.UTF-8'
