@@ -79,9 +79,9 @@ paru -S --needed --noconfirm \
     lsd npm tailscale bitwarden-cli bitwarden-bin bat direnv git-delta
 {{- end }}
 
-{{- else if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64") }}
+{{- else if eq .chezmoi.os "darwin" }}
 
-brew bundle --global
+brew bundle --global {{ if eq .chezmoi.arch "arm64" }} || true {{- end }}
 
 {{- end }}
 
@@ -97,11 +97,7 @@ fi
 
 # Rust utils
 if  [[ ! -x "$(command -v rustup)" ]]; then
-{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-{{- else }}
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain beta -y
-{{- end }}
 fi
 
 export PATH=~/.cargo/bin:"$PATH"
