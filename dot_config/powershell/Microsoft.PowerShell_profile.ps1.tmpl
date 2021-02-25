@@ -40,4 +40,5 @@ if (!$isWindows) {
 }
 
 &~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
+&zoxide init --hook pwd powershell | Out-String | Invoke-Expression
 &starship init powershell --print-full-init | Out-String | Invoke-Expression

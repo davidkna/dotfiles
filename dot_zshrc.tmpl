@@ -51,6 +51,7 @@ zinit wait lucid for \
 
 source <(starship init zsh --print-full-init)
 eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
 
 ~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 

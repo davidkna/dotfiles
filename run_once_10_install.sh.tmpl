@@ -55,7 +55,7 @@ sudo dnf install -y \
     langpacks-de langpacks-ja mozilla-openh264 iwd wireguard \
     ffmpeg tokei bsdtar util-linux-user bat htop podman \
     zsh fish starship exa syncthing fzf lsd tailscale \
-    ripgrep git-delta direnv
+    ripgrep git-delta direnv zoxide
 
 # DNF groups
 sudo dnf groupinstall "Development Tools" "C Development Tools and Libraries" -y
@@ -76,7 +76,7 @@ paru -S --needed --noconfirm \
     topgrade fd pandoc pandoc-citeproc pandoc-crossref python-black google-chrome \
     visual-studio-code-bin neovim mpv calibre iwd wireguard-tools tokei htop podman \
     zsh fish starship exa syncthing discord rustup topgrade yarn powershell-bin fzf \
-    lsd npm tailscale bitwarden-cli bitwarden-bin bat direnv git-delta
+    lsd npm tailscale bitwarden-cli bitwarden-bin bat direnv git-delta zoxide
 {{- end }}
 
 {{- else if eq .chezmoi.os "darwin" }}
