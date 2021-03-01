@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
 {{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
-export PATH=~/bin:~/.local/bin:~/.cargo/bin:/opt/homebrew/bin:"$PATH"
+export PATH=~/.local/bin:~/.cargo/bin:/opt/homebrew/sbin:/opt/homebrew/bin:"$PATH"
 export VISUAL="code-insiders --wait"
 {{- else }}
-export PATH=~/bin:~/.local/bin:~/.cargo/bin:"$PATH"
+export PATH=~/.local/bin:~/.cargo/bin:"$PATH"
 export VISUAL="code --wait"
 {{- end }}
 
@@ -21,7 +21,7 @@ export LC_ALL='de_DE.UTF-8'
 export LC_TIME='ja_JP.UTF-8'
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+test -z "$PS1" && return
 
 alias ls="exa --icons"
 alias l="exa -l --icons"
