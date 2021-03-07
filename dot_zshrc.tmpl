@@ -2,12 +2,11 @@
 
 {{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
 export PATH=~/.local/bin:~/.cargo/bin:/opt/homebrew/sbin:/opt/homebrew/bin:"$PATH"
-export VISUAL="code-insiders --wait"
 {{- else }}
 export PATH=~/.local/bin:~/.cargo/bin:"$PATH"
-export VISUAL="code --wait"
 {{- end }}
 
+export VISUAL="code --wait"
 export EDITOR=micro
 
 {{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
