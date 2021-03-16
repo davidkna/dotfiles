@@ -3,6 +3,7 @@
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
     pager = delta
+    untrackedCache = true
 
 [diff]
     # Detect copies as well as renames
@@ -14,12 +15,10 @@
     textconv = hexyl
 
 [merge]
-
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 
 [push]
-
     default = simple
     # Make `git push` push relevant annotated tags when pushing branches out.
     followTags = true
@@ -27,6 +26,7 @@
 [pull]
     ff = true
     rebase = true
+
 [rebase]
     autostash = true
 
@@ -53,7 +53,14 @@
     name = David Knaack
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[index]
+    version = 4
+
+[pack]
+    writeReverseIndex = true
+
