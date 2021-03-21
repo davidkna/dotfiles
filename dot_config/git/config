@@ -1,14 +1,14 @@
 [core]
     # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = ~/.gitignore
-    attributesfile = ~/.gitattributes
+    excludesfile = ~/.config/git/ignore
+    # attributesfile = ~/.gitattributes
     pager = delta
     untrackedCache = true
 
 [diff]
     # Detect copies as well as renames
     renames = copies
-
+    algorithm = histogram
     colorMoved = default
 
 [diff "bin"]
