@@ -1,6 +1,13 @@
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+
+brew 'bash'
 brew 'bat'
 brew 'bitwarden-cli'
 brew 'black'
+brew 'cargo-audit'
 brew 'chezmoi'
 brew 'cmake'
 brew 'ddrescue'
@@ -16,32 +23,42 @@ brew 'gh'
 brew 'git-delta'
 brew 'git-lfs'
 brew 'git'
+brew 'graphviz'
 brew 'hexyl'
 brew 'htop'
 brew 'imagemagick'
+brew 'jq'
+brew 'latexindent'
 brew 'llvm'
 brew 'lsd'
+brew 'macos-trash'
 brew 'mas'
 brew 'mpv'
+brew 'mtr'
 brew 'neovim'
 brew 'ninja'
 brew 'nmap'
 brew 'node'
+brew 'node'
 brew 'nushell'
+brew 'openjdk'
+brew 'oxipng'
 brew 'pandoc'
+brew 'pipx'
+brew 'poetry'
 brew 'python3'
 brew 'ripgrep'
 brew 'rust-analyzer'
+brew 'sd'
 brew 'shellcheck'
 brew 'starship'
-brew 'syncthing'
+brew 'syncthing', restart_service: true
 brew 'tmux'
 brew 'tokei'
 brew 'topgrade'
 brew 'vapoursynth'
-brew 'yarn'
-brew 'yasm'
 brew 'youtube-dl'
+brew 'zoxide'
 brew 'zsh'
 
 cask 'bitwarden'
@@ -54,7 +71,15 @@ cask 'iina'
 cask 'mactex-no-gui'
 cask 'microsoft-edge'
 cask 'powershell'
+cask 'signal'
 cask 'steam'
 cask 'visual-studio-code'
-cask 'whatsapp'
 cask 'yubico-authenticator'
+
+mas 'AdGuard for Safari', id: 1440147259
+mas 'Bitwarden', id: 1352778147
+mas 'Tailscale', id: 1475387142
+mas 'Tampermonkey', id: 1482490089
+mas 'Tweetbot', id: 1384080005
+mas 'WhatsApp', id: 1147396723
+mas 'WireGuard', id: 1451685025
