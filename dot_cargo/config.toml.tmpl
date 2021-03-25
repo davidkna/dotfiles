@@ -15,3 +15,7 @@ rustflags = ["-Ctarget-cpu=native"]
 rustflags = ["-Ctarget-cpu=native"]
 
 {{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+[profile.dev]
+split-debuginfo = "unpacked"
+{{- end }}
