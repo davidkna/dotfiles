@@ -1,6 +1,8 @@
 # General
 profile=gpu-hq
 gpu-api=vulkan
+vulkan-async-compute=yes
+vulkan-async-transfer=yes
 cursor-autohide=100
 keep-open=yes
 force-window=yes
@@ -15,17 +17,17 @@ hwdec=auto-copy
 
 # Subtitles
 sub-ass-override=no
-sub-font='Gandhi Sans'
-sub-blur=0.2
-sub-color=0.95
-sub-border-color=0.05/0.05/0.03
-sub-border-size=2.2
+sub-ass-force-style=playresx=1920,playresy=1080
+sub-font="Gandhi Sans"
+sub-font-size=50
+sub-color="#FFFFFF"
+sub-border-size=2.4
+sub-border-color="#FF000000"
+sub-shadow-color="#A0000000"
+sub-shadow-offset=0.75
 sub-bold
-sub-spacing=0.6
-sub-margin-x=180
-sub-margin-y=36
-sub-font-size=43
-sub-auto=fuzzy
+sub-ass-force-margins=yes
+sub-ass-force-style=Kerning=yes
 
 blend-subtitles=yes
 demuxer-mkv-subtitle-preroll
@@ -33,7 +35,6 @@ sub-ass-vsfilter-blur-compat=no
 sub-fix-timing=no
 sub-gauss=1.0
 sub-gray=yes
-sub-ass-vsfilter-blur-compat=yes
 
 # OSD/OSC
 title=${media-title} [${time-pos}${!duration==0: / ${duration}}]
