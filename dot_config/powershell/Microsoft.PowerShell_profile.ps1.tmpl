@@ -29,6 +29,7 @@ Import-Module PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineOption -PredictionSource History
 
 if (!$isWindows) {
   Import-Module Microsoft.PowerShell.UnixCompleters
