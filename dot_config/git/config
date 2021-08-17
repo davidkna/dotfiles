@@ -26,6 +26,7 @@
 [pull]
     ff = true
     rebase = true
+    twohead = ort
 
 [rebase]
     autostash = true
