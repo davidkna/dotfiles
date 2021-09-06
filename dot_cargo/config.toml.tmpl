@@ -19,3 +19,6 @@ rustflags = ["-Ctarget-cpu=native"]
 [profile.dev]
 split-debuginfo = "unpacked"
 {{- end }}
+
+[profile.release]
+lto = "thin"
