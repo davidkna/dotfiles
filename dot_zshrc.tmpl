@@ -9,11 +9,6 @@ export PATH=~/.local/bin:~/.cargo/bin:"$PATH"
 export VISUAL="code --wait"
 export EDITOR=micro
 
-{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
-export CFLAGS="${CFLAGS} -march=native -O2 -pipe"
-export CXXFLAGS="${CXXFLAGS} -march=native -O2 -pipe"
-{{- end }}
-
 export PYTHONIOENCODING='UTF-8'
 export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
