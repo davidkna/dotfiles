@@ -36,21 +36,18 @@ export PAGER="less -M"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-source ~/.zinit/bin/zinit.zsh
+source ~/.zcomet/bin/zcomet.zsh
 
-zinit wait lucid for \
- atinit"zpcompinit; zpcdreplay" \
-  Aloxaf/fzf-tab \
- blockf \
-    zdharma/fast-syntax-highlighting \
- atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
- blockf \
-    zsh-users/zsh-completions
+zcomet load Aloxaf/fzf-tab
+zcomet load zsh-users/zsh-syntax-highlighting
+zcomet load zsh-users/zsh-autosuggestions
+zcomet fpath zsh-users/zsh-completions src
 
 source <(starship init zsh --print-full-init)
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
+
+zcomet compinit
 
 ~/.cargo/bin/lolcow-fortune cowsay -fmoose -L
 
