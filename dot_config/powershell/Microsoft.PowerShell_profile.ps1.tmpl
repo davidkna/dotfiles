@@ -3,6 +3,10 @@
 # Use UTF-8 everywhere
 $OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
+{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") }}
+$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression
+{{- end }}
+
 $ENV:PATH += ":~/bin:~/.local/bin:~/.cargo/bin"
 $ENV:EDITOR="micro"
 $ENV:VISUAL="code --wait"
