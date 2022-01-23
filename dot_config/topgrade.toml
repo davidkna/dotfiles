@@ -1,0 +1,1 @@
+disable = ["tlmgr", "chezmoi", "node", "micro", "pip3", "pnpm"]
