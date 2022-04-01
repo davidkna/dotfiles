@@ -17,6 +17,7 @@
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    conflictStyle = zdiff3
 
 [push]
     default = simple
@@ -26,13 +27,12 @@
 [pull]
     ff = true
     rebase = true
-    twohead = ort
 
 [rebase]
     autostash = true
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
 
 [delta]
     features = line-numbers decorations
@@ -64,4 +64,10 @@
 
 [pack]
     writeReverseIndex = true
+
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !gh auth git-credential
 
