@@ -1,1 +1,1 @@
-disable = ["tlmgr", "chezmoi", "node", "micro", "pip3", "pnpm"]
+disable = ["tlmgr", "chezmoi", "node", "micro", "pip3"]
