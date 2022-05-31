@@ -31,6 +31,10 @@ export PAGER="less -M"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 source ~/.zcomet/bin/zcomet.zsh
 
 zcomet load Aloxaf/fzf-tab
