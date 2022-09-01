@@ -1,0 +1,7 @@
+theme = "onedark"
+
+[editor]
+cursorline = true
+
+[editor.indent-guides]
+render = true
